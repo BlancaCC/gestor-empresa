@@ -1,0 +1,17 @@
+version: '3'
+services:
+        php-apache:
+                build:
+                        context: ./php-apache
+                ports:
+                        - 8080:80
+                volumes:
+                        - ./html:/var/www/html
+                links:
+                        - 'mariadb'
+        mariadb:
+                build:
+                        context: ./mariadb
+                volumes:
+                        - ./mariadb_data:/var/lib/mysql
+                        

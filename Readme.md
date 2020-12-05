@@ -1,8 +1,10 @@
 # Gestor de una empresa  
 
+
+
 ## Instrucciones para poner a funcionar esta movida y probarla  
 
-### Instalación de docker  
+### Instalación de docker ejemplo   
 
 1. Instala docker en tu ordenador, será un comandillo de na, eso te lo dejo a ti :)  
 
@@ -74,12 +76,19 @@ El parámetro -t nos permite etiquetar la imagen con un nombre y una versión. E
 ## Mariadb y docker   
 -  https://hub.docker.com/_/mariadb?tab=reviews  
 - https://mariadb.com/kb/en/installing-and-using-mariadb-via-docker/  
+- https://dockertips.com/utilizando-docker-compose
+- https://levelup.gitconnected.com/two-ways-to-automatically-initialize-mysql-in-docker-e499a9084757
 
 ## Crear una imagen de docker  
 - https://aulasoftwarelibre.github.io/taller-de-docker/dockerfile/  
 - https://www.atareao.es/tutorial/docker/crear-tus-propias-imagenes-docker/  
 - https://linuxconfig.org/how-to-create-a-docker-based-lamp-stack-using-docker-on-ubuntu-20-04
+-https://github.com/celsocelante/docker-lamp/blob/master/app/index.php  
 
 ## Docker comandos   
 
 - https://www.vidaxp.com/tecnologia/como-borrar-imagenes-contenedores-y-volumenes-docker/  
+
+## Lamp docker  
+
+https://www.centlinux.com/2020/03/configure-lamp-stack-in-docker-containers.html
