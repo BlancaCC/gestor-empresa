@@ -21,8 +21,23 @@ Para tener información globar de todo:  `docker-compose up --remove-orphan --bu
 
 Para acceder a un contendor concreto `docker exec -it gestor-empresa_mariadb_1 bash`
 
+### Cómo modifico la base de datos   
 
+Yo recomiendo tener el fichero guardado en la carpeta sql y desde dentro (en breve explico cómo se hace) ejecutarlo. 
 
+1. El contenedor se encuentra en ejecución.   
+2. accedemos a mariadb `docker exec -it gestor-empresa_mariadb_1 bash`. 
+3. Modificamos como de toda la vida el la base de datos. 
+
+en este caso para acceder como root: `mariadb -uroot -p123`  
+
+Recuerdo de los comando básicos: 
+
+`SHOW DATABASES;`  
+`USE <nombre de la bd>;`
+`SOURCE <nomrbe fichero dese el path que se esté>;` 
+`show tables;`
+`select * from <tabla>; `
 
 ### Instalación de docker ejemplo simplón pa novatillos <3   
 
