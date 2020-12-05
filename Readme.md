@@ -127,3 +127,8 @@ El parámetro -t nos permite etiquetar la imagen con un nombre y una versión. E
 ## Lamp docker  
 
 https://www.centlinux.com/2020/03/configure-lamp-stack-in-docker-containers.html
+
+## html y php
+
+- https://www.tutorialrepublic.com/php-tutorial/php-mysql-insert-query.php
+- https://www.w3schools.com/php/php_includes.asp
