@@ -4,7 +4,27 @@
 
 ## Instrucciones para poner a funcionar esta movida y probarla  
 
-### Instalación de docker ejemplo   
+1. Instala docker en tu ordenador, será un comandillo de na, eso te lo dejo a ti :)  
+
+2. Dentro de esta carpeta ejecuta `docker-compose up -d`
+
+3. Abre navegador en  `localhost:8080` debería estar nuestra paginilla
+
+Si actualizamos la base de datos o cammbiamos cosas iniciales, hay que empezar desde cero, esto será: 
+
+```
+docker-compose down -v
+docker-compose up -d
+```
+
+Para tener información globar de todo:  `docker-compose up --remove-orphan --build`
+
+Para acceder a un contendor concreto `docker exec -it gestor-empresa_mariadb_1 bash`
+
+
+
+
+### Instalación de docker ejemplo simplón pa novatillos <3   
 
 1. Instala docker en tu ordenador, será un comandillo de na, eso te lo dejo a ti :)  
 

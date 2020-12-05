@@ -13,7 +13,7 @@
         <table>
         <tr>
         <th>Name</th>
-        <th>Email</th>
+        <th>Pseudonimo</th>
         </tr>
       <?php
          $dbhost = "mariadb";
@@ -32,7 +32,7 @@
             echo
                 "<tr>
                 <td>{$row['name']}</td>
-                <td>{$row['email']}</td>
+                <td>{$row['pseudonimo']}</td>
                 </tr>";
          }
 
