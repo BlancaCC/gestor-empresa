@@ -132,3 +132,5 @@ https://www.centlinux.com/2020/03/configure-lamp-stack-in-docker-containers.html
 
 - https://www.tutorialrepublic.com/php-tutorial/php-mysql-insert-query.php
 - https://www.w3schools.com/php/php_includes.asp
+- https://www.studentstutorial.com/php/php-mysql-data-insert
+- https://stackoverflow.com/questions/5968280/how-to-run-a-php-function-from-an-html-form

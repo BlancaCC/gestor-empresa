@@ -37,17 +37,31 @@
                 </tr>";
          }
 
-         mysqli_close($dbconn);
-      ?>
+         //mysqli_close($dbconn);
 
+   if(isset($_POST['save']))
+ {	 
+	 $name = $_POST['name'];
+	
+	 $sql = "INSERT INTO vehiculo (name)
+	 VALUES ('$name')";
 
-      <form action="insert.php" method="post">
+	 if (mysqli_query($dbconn, $sql)) {
+		echo "Nuevo vehículo guardado, recarga para ver !";
+	 } else {
+		echo "Error: " . $sql . "
+" . mysqli_error($dbconn);
+	 }
+	 mysqli_close($dbconn);
+}
+?>
+      <form action="" method="post">
       <p>
 	  <label for="name">Nombre vehículo:</label>
           <input type="text" name="name" id="name">
     	  </p>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" name="save">
 </form>
    </body>
 
