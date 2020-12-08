@@ -68,6 +68,50 @@
 	 
 
 
+	<h2> Centros  </h2>
+
+	 <table>
+        <tr>
+        <th> Direccion </th>
+        <th> Telefono </th>
+	<th> Nombre </th>
+	    </tr>
+	     <?php include 'logisticaCentro.php'; ?>
+	 </table>
+
+	 <h3> Registrar nuevos centros </h3>
+
+
+	 <form action="pushCentro.php" method="post">
+	  
+	  <p>
+	    
+	  <label for="direccion"> Direccion :</label> 	  <br>
+          <input type="text" name="direccion" id="direccion">
+	  <br>
+	  <label for="telefono"> Teléfono: </label> 	  <br>
+          <input type="text" name="telefono" id="telefono">
+	   <br>
+	  <label for="nombre"> Nombre: </label> 	  <br>
+          <input type="text" name="nombre" id="nombre">
+	  <br>
+	  	  
+	  </p>
+
+	  <input type="submit" value="submit" name="submit">
+	</form>
+
+
+	 
+
+	<h2> Vehículo sin localizar </h2>
+
+	
+	
+	     <?php include 'logisticaVehiculosSinLocalizar.php'; ?>
+	
+	
+
 	
 </body>
 

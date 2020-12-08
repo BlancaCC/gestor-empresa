@@ -9,10 +9,12 @@ CREATE TABLE centro (
 direccion VARCHAR(200) NOT NULL,
 telefono VARCHAR (30) NOT NULL,
 nombre VARCHAR (30) NOT NULL,
-PRIMARY KEY (direccion)
 
+PRIMARY KEY (direccion),
+CONSTRAINT telefono_centro_unico UNIQUE (telefono)
 
 );
+
 CREATE TABLE vehiculo (
        matricula VARCHAR(30) NOT NULL,
        tipoVehiculo VARCHAR(30),
