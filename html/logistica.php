@@ -26,13 +26,13 @@
 	     <?php include 'logisticaVehiculos.php'; ?>
 	</table>
 	
-	<table>
-	  <tr>
+	
+	 
 	    
-	    <h3> Nuevo vehículo </h3>
+	    <h3>Vehículo </h3>
 
-	  <tr>
-	<form action="" method="post">
+	  
+	<form action="pushVehiculos.php" method="post">
 	  
 	  <p>
 	    
@@ -53,19 +53,22 @@
 	  <br>
 	  <label for="estado">Estado: </label> 	  <br>
           <input type="text" name="estado" id="estado">
-	  <br>
+	  <br><br>
+	  Tipo acción: <br>
+	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
+	  <input type="radio" value="borrar" name="accion" id="borrar"> borrar
+	  <input type="radio" value="modificar" name="accion" id="modificar"> modificar
 	    
 
 	  
       </p>
 
-	  <input type="submit" value="nuevo" name="save">
-	  <input type="submit" value="borrar" name="borrar">
-	  <input type="submit" value="modificar" name="modificar">
-
+	  <input type="submit" value="submit" name="submit">
 	</form>
-</tr>
-		  </table>
+	 
+
+
+	
 </body>
 
 

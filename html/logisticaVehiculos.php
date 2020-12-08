@@ -21,7 +21,7 @@ WHERE v.matricula = l.matricula;"
          </tr>";
          }
 
-         //mysqli_close($dbconn);
+         mysqli_close($dbconn);
 
 
 ?>
