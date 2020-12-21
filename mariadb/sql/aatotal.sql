@@ -1,4 +1,5 @@
 
+    
 CREATE TABLE grupoClientes (
        nombreGrupo VARCHAR(20) NOT NULL,
        PRIMARY KEY (nombreGrupo)
@@ -100,14 +101,12 @@ CREATE TABLE localizarVehiculo (
 
 
 
-
----- 
 INSERT INTO centro( direccion, telefono, nombre)
 VALUES
 ('malaga','978123456','malagroselli'),
 ('granada','958123456','graxselli'),
 ('jaen','908123456','jaeroselli'),
-('almeria','978123456','alagroselli'),
+('almeria','978123416','alagroselli'),
 ('sevilla','918123456','seroselli'),
 ('cadiz','990123456','seroselli'),
 ('hueva','954813456','huoselli'),
@@ -213,6 +212,34 @@ VALUES
 ('10','1560','ES56573829')
 ;
 
+    CREATE TABLE Empleado (
+    dni  VARCHAR(9) NOT NULL ,
+    nombre VARCHAR(20) NOT NULL,
+    apellidos VARCHAR(40) NOT NULL,
+    telefono VARCHAR(9),
+    direccion VARCHAR(50) ,
+    direccionCentro VARCHAR(200) ,
+    
+       PRIMARY KEY (dni),
+    FOREIGN KEY (direccionCentro) REFERENCES centro (direccion)
+
+);
+
+    
+INSERT INTO
+Empleado (dni, nombre, apellidos, telefono, direccion, direccionCentro)
+VALUES
+('24179283W','Victor', 'Castro', '893847348', 'Granada', 'Granada'),
+('24159283X','Laura ', 'Dominguez', '893847123', 'Granada', 'Malaga'),
+('39679283Y','Marcos', 'Parra', '128347348', 'Armilla', 'Jaen'),
+('15679299A','Miriam ', 'Lopez', '837103946', 'Armilla', 'Jaen'),
+('65679333E','Paula ', 'Carretero', '558342348', 'Armilla', 'Granada'),
+('11644283P','Josefa ', 'Hernandez', '722334548', 'Albolote', 'Malaga'),
+('12399283T','Agustin ', 'Monedero', '736341938', 'Viznar', 'Malaga'),
+('59259283A','Alejandro ', 'Gomez', '918267348', 'Armilla', 'Jaen'),
+('91529385O','Maria ', 'Charriel', '182492759', 'Granada', 'Malaga'),
+('73729938S','Rafael ', 'Montero', '823934293', 'Albolote', 'Almeria');
+
 CREATE TABLE Recibir (
        Codigo INT NOT NULL,
     DNI VARCHAR(9) NOT NULL,
@@ -238,6 +265,7 @@ Codigo INT NOT NULL,
 FOREIGN KEY (Id) REFERENCES Factura (Id),
      FOREIGN KEY (Codigo) REFERENCES Sueldo (Codigo)
 );
+    
 INSERT INTO CalcularBeneficio (Id,Codigo, Beneficio)
 VALUES
 ('1','2','4250'),
@@ -247,35 +275,9 @@ VALUES
 ('2','4','3450')
 ;
 
-CREATE TABLE Empleado (
-    dni  VARCHAR(9) NOT NULL ,
-    nombre VARCHAR(20) NOT NULL,
-    apellidos VARCHAR(40) NOT NULL,
-    telefono VARCHAR(9),
-    direccion VARCHAR(50) ,
-    direccionCentro VARCHAR(200) ,
-    
-       PRIMARY KEY (dni),
-    FOREIGN KEY (direccionCentro) REFERENCES centro (direccion)
-
-);
 
 
 
-
-INSERT INTO
-Empleado (dni, nombre, apellidos, telefono, direccion, direccionCentro)
-VALUES
-('24179283W','Victor', 'Castro', '893847348', 'Granada', 'Granada'),
-('24159283X','Laura ', 'Dominguez', '893847123', 'Granada', 'Malaga'),
-('39679283Y','Marcos', 'Parra', '128347348', 'Armilla', 'Jaen'),
-('15679299A','Miriam ', 'Lopez', '837103946', 'Armilla', 'Jaen'),
-('65679333E','Paula ', 'Carretero', '558342348', 'Armilla', 'Granada'),
-('11644283P','Josefa ', 'Hernandez', '722334548', 'Albolote', 'Malaga'),
-('12399283T','Agustin ', 'Monedero', '736341938', 'Viznar', 'Malaga'),
-('59259283A','Alejandro ', 'Gomez', '918267348', 'Armilla', 'Jaen'),
-('91529385O','Maria ', 'Charriel', '182492759', 'Granada', 'Malaga'),
-('73729938S','Rafael ', 'Montero', '823934293', 'Albolote', 'Almeria');
 
 
 
