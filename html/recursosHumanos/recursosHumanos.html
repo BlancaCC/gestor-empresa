@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>Roselli logistica</title>
+     <meta charset="UTF-8">
+     
+     <link rel="stylesheet" type="text/css" href="/style/styles.css">
+     
+     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   
+   <body>
+    
+     <div class="topnav">
+       <a class="active" href="/recursosHumanos/recursosHumanos.html">Recursos Humanos</a>
+       <a href="/">Home</a>
+     </div>
+
+
+ <button class="accordion"> Gestión empleados </button>
+<div class="panel">
+
+  <div id="consultaEmpleados"> </div>
+  
+</div>
+
+ <button class="accordion"> Gestión grupos </button>
+<div class="panel">
+
+  <div id="consultaGrupos"> </div>
+  
+</div>
+
+    
+
+
+        <script>
+          $(document).ready(
+              $.get('/recursosHumanos/server/consultarEmpleados.php', $(this).serialize(),
+                    function (data) {
+                        $("#consultaEmpleados").html(data);
+                    }
+                   )
+          );
+          
+        </script>
+
+	 <script>
+          $(document).ready(
+              $.get('/recursosHumanos/server/consultarGrupos.php', $(this).serialize(),
+                    function (data) {
+                        $("#consultaGrupos").html(data);
+                    }
+                   )
+          );
+          
+        </script>
+
+<script src="/animation/acordeon.js"></script>
+</body>
+</html>
