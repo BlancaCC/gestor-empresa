@@ -7,7 +7,7 @@
     
 
     function recargarCentros() {
-    $.get('logistica/server/readCentro.php', $(this).serialize(), cargarCentros);
+    $.get('/logistica/server/readCentro.php', $(this).serialize(), cargarCentros);
     }
 
 

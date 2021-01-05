@@ -1,10 +1,19 @@
 <?php
       include('cabecera.php');
 
-$query = mysqli_query($dbconn, "SELECT * FROM centro;")
+        $query = mysqli_query($dbconn, "SELECT * FROM centro;")
 
             or die (mysqli_error($dbconn));
 
+
+         $return = 
+         "<tr>
+        <td> Direccion </td>
+        <td>Telefono</td>
+	<td> Nombre </td>
+         </tr>";
+
+    
          while ($row = mysqli_fetch_array($query)) {
          $return .= 
          "<tr>
