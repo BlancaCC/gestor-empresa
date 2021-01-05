@@ -1,6 +1,7 @@
 <?php
       include('cabecera.php');
 
+
 $query = mysqli_query($dbconn, 
 "SELECT v.matricula, l.localizacion, v.tipoVehiculo, v.capacidad, v.pesoMaximoCarga, v.estado
 FROM vehiculo v, localizarVehiculo l
