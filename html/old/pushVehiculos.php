@@ -2,9 +2,9 @@
 	include('cabecera.php');
 
 
+$success = []; 
 
-
-	if(isset($_POST['submit']))
+	//if(isset($_POST['submit']))
 	{
 
 		// versión para meter datos en la base de datos
@@ -30,12 +30,15 @@
 			
 				if (mysqli_query($dbconn, $sql))
 				{
-					echo "Se borra la localización de vehiculo";
+					//echo "Se borra la localización de vehiculo";
+                   $listado =array('success' => 1);
 				} 
 				else 
 				{
-					echo "Error: " . $sql . "		" . mysqli_error($dbconn);
-					echo "<br>Localización vacía del vehículo";
+					//echo "Error: " . $sql . "		" . mysqli_error($dbconn);
+					// echo "<br>Localización vacía del vehículo";
+                $listado = array('success' => 0);
+                
 				}
 			
 				$sql = "DELETE FROM vehiculo WHERE matricula='$matricula'";
@@ -59,11 +62,14 @@
 
 				if (mysqli_query($dbconn, $sql)) 
 				{
-					echo "Nuevo vehículo guardado, recarga para ver !";
+					//echo "Nuevo vehículo guardado, recarga para ver !";
+                $listado =array('success' => 1);
 				} 
 				else 
 				{
-					echo "Error: " . $sql . "" . mysqli_error($dbconn);
+					//echo "Error: " . $sql . "" . mysqli_error($dbconn);
+                    $listado =array('success' => 0, 'mesage' => "Error: " . $sql . "" . mysqli_error($dbconn));    
+					
 				} 
 
 				if(!empty($_POST['localizacion'])) 
@@ -75,22 +81,26 @@
 
 					if (mysqli_query($dbconn, $sql)) 
 					{
-						echo "Nuevo vehiculo y localización añadida!";
+						//echo "Nuevo vehiculo y localización añadida!";
+                        $listado = array('success' => 1);
 					} 
 					else 
 					{
-						echo "Error: " . $sql . " " . mysqli_error($dbconn);
+						//echo "Error: " . $sql . " " . mysqli_error($dbconn);
+                        $listado =array('success' => 0);
 					}
 				}
 				else 
 				{
-					echo "Localización vacía del vehículo";
+					//echo "Localización vacía del vehículo";
+                    $listado =array('success' => 1);
 				}
 			} // fin localización 
 
 		} // fin acction 
 		
 
+    echo json_encode($success, JSON_FORCE_OBJECT);
 		mysqli_close($dbconn);
 	} // fin botón 
 
