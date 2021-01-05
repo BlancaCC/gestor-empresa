@@ -10,14 +10,16 @@ WHERE v.matricula = l.matricula;"
             or die (mysqli_error($dbconn));
 
 
-    $resultado = <tr>
+    $resultado = "<tr>
         <td>Matricula</td>
         <td> TipoVehiculo</td>
 	<td>Capacidad</td>
 	<td> PesoMaximoCarga </td>
 	<td> Localizacion</td>
 	<td> Estado </td>
-         </tr>"
+         </tr>";
+
+    
          while ($row = mysqli_fetch_array($query)) {
          $resultado .= 
          "<tr>
@@ -30,6 +32,7 @@ WHERE v.matricula = l.matricula;"
          </tr>";
          }
 
+        echo $resultado;
          mysqli_close($dbconn);
 
 

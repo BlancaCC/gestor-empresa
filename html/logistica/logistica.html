@@ -56,11 +56,34 @@
 
      </div>
 
-   
+     <script src="/logistica/js/centros.js"> </script>
 
-      <script src="/animation/acordeon.js"></script>
 
-    <script src="/logistica/js/centros.js"> </script>
-    
+
+      <button class="accordion"> Gestión vehículos </button>
+      <div class="panel">
+        <h2> Gestión de vehículos </h2>
+        <div id="consultaVehiculos"> </div>
+  
+      </div>
+
+      <div id="ms"> </div>
+
+    <!--  
+      <script src="/logistica/js/vehiculos.js">
+        -->
+
+        <script>
+          $(document).ready(
+              $.get('/logistica/server/readVehiculos.php', $(this).serialize(),
+                    function (data) {
+                        $("#consultaVehiculos").html(data);
+                    }
+                   )
+          );
+          
+        </script>
+
+<script src="/animation/acordeon.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 
     // ________ gestion de centros _______ 
     function cargarCentros( data) {
-        $("#consultaCentros").html( data);
+        $("#consultaCentros").html(data);
     }
 
     
