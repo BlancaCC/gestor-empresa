@@ -11,7 +11,7 @@ WHERE v.matricula = l.matricula;"
             or die (mysqli_error($dbconn));
 
 
-    $resultado = <tr>
+    $resultado = "<tr>
         <td>Matricula</td>
         <td> TipoVehiculo</td>
 	<td>Capacidad</td>
