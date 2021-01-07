@@ -19,11 +19,49 @@
      </div>
 
 
- <button class="accordion"> Gestión empleados </button>
+<button class="accordion"> Gestión empleados </button>
 <div class="panel">
-
+<h2> Gestión de empleados </h2>
   <div id="consultaEmpleados"> </div>
+<h3> Registros nuevos empleados </h3>
+
+        <form id="pushEmpleados" method="post">
+	  <p>
+	    
+	  <label for="dni">DNI:</label> 	  <br>
+          <input type="text" name="dni" id="dni" required>
+	  <br>
+	  <label for="nombre">Nombre: </label> 	  <br>
+          <input type="text" name="nombre" id="nombre" required>
+	   <br>
+	  <label for="apellidos">Apellidos: </label> 	  <br>
+          <input type="text" name="apellidos" id="apellidos" required>
+	  <br>
+	  <label for="telefono">Telefono: </label> 	  <br>
+          <input type="text" name="telefono" id="telefono" >
+	  <br>
+	  <label for="grupo">Grupo: </label> 	  <br>
+          <input type="text" name="grupo" id="grupo" >
+	  <br>
+	  <label for="direccion">Direccion: </label> 	  <br>
+          <input type="text" name="direccion" id="direccion">
+	  <br>
+	  <label for="direccionCentro">Centro: </label> 	  <br>
+          <input type="text" name="direccionCentro" id="direccionCentro" required>
+	  <br><br>
+	  Tipo acción: <br>
+	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
+	  <input type="radio" value="borrar" name="accion" id="borrar"> borrar
+	  <input type="radio" value="modificar" name="accion" id="modificar"> modificar
+	    
+
+	  
+      </p>
+
+	  <input type="submit" value="submit" name="submit">
+	   </form>
   
+      
 </div>
 
  <button class="accordion"> Gestión grupos </button>
@@ -34,29 +72,15 @@
 </div>
 
     
+ <div id="ms"> </div>
+
+     
+      <script src="/recursosHumanos/js/empleados.js"></script>
+
+     
 
 
-        <script>
-          $(document).ready(
-              $.get('/recursosHumanos/server/consultarEmpleados.php', $(this).serialize(),
-                    function (data) {
-                        $("#consultaEmpleados").html(data);
-                    }
-                   )
-          );
-          
-        </script>
 
-	 <script>
-          $(document).ready(
-              $.get('/recursosHumanos/server/consultarGrupos.php', $(this).serialize(),
-                    function (data) {
-                        $("#consultaGrupos").html(data);
-                    }
-                   )
-          );
-          
-        </script>
 
 <script src="/animation/acordeon.js"></script>
 </body>

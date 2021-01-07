@@ -13,7 +13,7 @@
 
      $return = 
          "<tr>
-        <td>Nombre Grupo</td>
+        <td>nombreGrupo</td>
 	<td>Nombre</td>
 	<td>Apellidos</td>
          </tr>";
