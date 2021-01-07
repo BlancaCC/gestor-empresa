@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Roselli contabilidad</title>
+    <link rel="stylesheet" type="text/css" href="/style/styles.css">
+
+     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+     </head>
+   
+  <body>
+
+<div class="topnav">
+       <a class="active" href="/Contabilidad/contabilidad.html"> Contabilidad</a>
+       <a href="/">Home</a>
+</div>
+
+
+ <button class="accordion"> Cobros </button>
+
+<div class="panel">
+
+  <div id="cobrar"> </div>
+  
+</div>
+
+<button class="accordion"> Facturas </button>
+
+<div class="panel">
+
+  <div id="facturas"> </div>
+  
+</div>
+
+<button class="accordion"> Sueldos </button>
+
+<div class="panel">
+
+  <div id="sueldos"> </div>
+  
+</div>
+
+<script>
+
+  
+  $(document).ready(
+      $.get('/Contabilidad/server/cobrar.php',
+            $(this).serialize(),
+                    function (data) {
+                        $("#cobrar").html(data);
+                    }
+                   )
+          );
+  
+  
+  </script>
+
+<script>
+
+  
+  $(document).ready(
+      $.get('/Contabilidad/server/factura.php',
+            $(this).serialize(),
+                    function (data) {
+                        $("#facturas").html(data);
+                    }
+                   )
+          );
+  
+  
+  </script>
+
+<script>
+
+  
+  $(document).ready(
+      $.get('/Contabilidad/server/sueldo.php',
+            $(this).serialize(),
+                    function (data) {
+                        $("#sueldos").html(data);
+                    }
+                   )
+          );
+  
+  
+  </script>
+
+
+    <script src="/animation/acordeon.js"></script>
+    </body>
+</html>

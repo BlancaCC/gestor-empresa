@@ -15,7 +15,7 @@
     
      <div class="topnav">
        <a class="active" href="/logistica/logistica.html">Logistica</a>
-       <a href="./">Home</a>
+       <a href="/">Home</a>
      </div>
 
 
@@ -64,25 +64,49 @@
       <div class="panel">
         <h2> Gestión de vehículos </h2>
         <div id="consultaVehiculos"> </div>
+
+        <h3> Registros nuevos vehículos </h3>
+
+        <form id="pushVehiculos" method="post">
+	  <p>
+	    
+	  <label for="matricula">Matricula vehículo:</label> 	  <br>
+          <input type="text" name="matricula" id="matricula" required>
+	  <br>
+	  <label for="tipo">Tipo vehículo: </label> 	  <br>
+          <input type="text" name="tipo" id="tipo" required>
+	   <br>
+	  <label for="localizacion">Localización: </label> 	  <br>
+          <input type="text" name="localizacion" id="localizacion">
+	  <br>
+	  <label for="capacidad">Capacidad: </label> 	  <br>
+          <input type="text" name="capacidad" id="capacidad" required>
+	  <br>
+	  <label for="pesomaximo">Peso máximo: </label> 	  <br>
+          <input type="text" name="pesomaximo" id="pesomaximo">
+	  <br>
+	  <label for="estado">Estado: </label> 	  <br>
+          <input type="text" name="estado" id="estado">
+	  <br><br>
+	  Tipo acción: <br>
+	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
+	  <input type="radio" value="borrar" name="accion" id="borrar"> borrar
+	  <input type="radio" value="modificar" name="accion" id="modificar"> modificar
+	    
+
+	  
+      </p>
+
+	  <input type="submit" value="submit" name="submit">
+	   </form>
   
       </div>
 
       <div id="ms"> </div>
 
-    <!--  
-      <script src="/logistica/js/vehiculos.js">
-        -->
-
-        <script>
-          $(document).ready(
-              $.get('/logistica/server/readVehiculos.php', $(this).serialize(),
-                    function (data) {
-                        $("#consultaVehiculos").html(data);
-                    }
-                   )
-          );
-          
-        </script>
+     
+      <script src="/logistica/js/vehiculos.js"></script>
+        
 
 <script src="/animation/acordeon.js"></script>
 </body>
