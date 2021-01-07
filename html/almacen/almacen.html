@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Roselli almacen</title>
+    <link rel="stylesheet" type="text/css" href="/style/styles.css">
+
+     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     </head>
+
+  <body>
+
+<div class="topnav">
+       <a class="active" href="/almacen/almacen.html"> Almacén</a>
+       <a href="/">Home</a>
+</div>
+
+
+ <button class="accordion"> Consultar componentes </button>
+<div class="panel">
+
+  <div id="consultarComponentes"> </div>
+
+</div>
+
+<script>
+
+
+  $(document).ready(
+      $.get('/almacen/server/consultarComponentes.php',
+            $(this).serialize(),
+                    function (data) {
+                        $("#consultarComponentes").html(data);
+                    }
+                   )
+          );
+
+
+  </script>
+
+
+  <button class="accordion"> Consultar estanterías </button>
+ <div class="panel">
+
+   <div id="consultarEstanterias"> </div>
+
+ </div>
+
+ <script>
+
+
+   $(document).ready(
+       $.get('/almacen/server/consultarEstanterias.php',
+             $(this).serialize(),
+                     function (data) {
+                         $("#consultarEstanterias").html(data);
+                     }
+                    )
+           );
+
+
+   </script>
+
+
+   <button class="accordion"> Estanterías vacías </button>
+  <div class="panel">
+
+    <div id="estanteriasVacias"> </div>
+
+  </div>
+
+  <script>
+
+
+    $(document).ready(
+        $.get('/almacen/server/estanteriasVacias.php',
+              $(this).serialize(),
+                      function (data) {
+                          $("#estanteriasVacias").html(data);
+                      }
+                     )
+            );
+
+
+    </script>
+
+
+    <script src="/animation/acordeon.js"></script>
+    </body>
+</html>
