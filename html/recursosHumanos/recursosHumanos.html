@@ -46,6 +46,9 @@
 	  <label for="direccion">Direccion: </label> 	  <br>
           <input type="text" name="direccion" id="direccion">
 	  <br>
+	  <label for="cuentaBancaria">Cuenta Bancaria: </label> 	  <br>
+          <input type="text" name="cuentaBancaria" id="cuentaBancaria">
+	  <br>
 	  <label for="direccionCentro">Centro: </label> 	  <br>
           <input type="text" name="direccionCentro" id="direccionCentro" required>
 	  <br><br>
@@ -131,6 +134,39 @@
 
       <script src="/recursosHumanos/js/grupos.js"></script>
 
+
+ <button class="accordion"> Gestión salario</button>
+<div class="panel">
+<h2> Gestión de salario </h2>
+  
+<h3> Asignar salario </h3>
+       <form id="pushSalario" method="post">
+	  <p>
+	    
+	  <label for="codigo">Codigo:</label> 	  <br>
+          <input type="text" name="codigo" id="codigo" required>
+ 	  <br>
+	  <label for="dni">DNI:</label> 	  <br>
+          <input type="text" name="dni" id="dni" required>
+	  <br><br>
+	  Tipo acción: <br>
+	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
+	
+	    
+
+	  
+      </p>
+
+	  <input type="submit" value="submit" name="submit">
+	   </form>
+  
+</div>
+
+
+
+     
+  
+      <script src="/recursosHumanos/js/salario.js"></script>
 
 <script src="/animation/acordeon.js"></script>
 </body>

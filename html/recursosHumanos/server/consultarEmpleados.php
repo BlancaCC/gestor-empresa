@@ -18,7 +18,9 @@
 	<td>Apellidos</td>
 	<td>Telefono</td>
         <td>Direccion</td>
+	<td>CuentaBancaria</td>
 	<td>DireccionCentro</td>
+	
          </tr>";
 
 
@@ -30,7 +32,9 @@
 <td> {$row['apellidos']}</td>
 <td> {$row['telefono']}</td>
 <td> {$row['direccion']}</td>
+<td> {$row['cuentaBancaria']}</td>
 <td> {$row['direccionCentro']}</td>
+
 </tr>"
     ;
     }

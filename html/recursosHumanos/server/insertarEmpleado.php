@@ -14,6 +14,7 @@
         //pueden estar nulas
 		$telefono = $_POST['telefono'];
 		$direccion = $_POST['direccion'];
+		$cuentaBancaria = $_POST['cuentaBancaria'];
 		
     
 // -----
@@ -23,8 +24,8 @@
 
     
     // (1) INSERCIÓN EN TABLA VEHÍCULO   
-    	$sql = "INSERT INTO Empleado (dni, nombre, apellidos, telefono, direccion, direccionCentro)
-    				VALUES ('$dni', '$nombre', '$apellidos', '$telefono', '$direccion', '$direccionCentro');";
+    	$sql = "INSERT INTO Empleado (dni, nombre, apellidos, telefono, direccion,cuentaBancaria, direccionCentro)
+    				VALUES ('$dni', '$nombre', '$apellidos', '$telefono', '$direccion', '$cuentaBancaria','$direccionCentro');";
 
     	if (mysqli_query($dbconn, $sql)) {
     		$return .=  "Nuevo empleado guardado con éxito.";

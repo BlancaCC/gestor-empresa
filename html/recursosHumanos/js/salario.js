@@ -1,37 +1,28 @@
-/** GESTIÓN DE EMPLEADOS **/
+/** GESTIÓN DE Salarios **/
 
 
-// _____ Consultar empleados
-
-function consultaEmpleados() {
- $.get('/recursosHumanos/server/consultarEmpleados.php', $(this).serialize(),
-                    function (data) {
-                        $("#consultaEmpleados").html(data);
-                    }
-                   );
-}
 
 
-function insertarEmpleado(dni, nombre,apellidos,telefono, direccion, cuentaBancaria, direccionCentro, grupo) {
+
+function insertarSalario(codigo, dni) {
 
     // comprobación parámetros obligatorios
-    if(dni == "" || nombre == "" ||
-       apellidos  == "" || direccionCentro == "") {
+    if(nombre == "" || dni = "") {
         alert( "Hay algún campo que no puede estar vacío");
         return ;
     }
 
     // insercción de los datos 
     
-    var form_data = $("#pushEmpleados").serialize();
+    var form_data = $("#pushSalario").serialize();
     
-    $.post( '/recursosHumanos/server/insertarEmpleado.php',
+    $.post( '/recursosHumanos/server/asignarSalario.php',
             form_data,
             function(response) {alert(response);}
           );
                     
     // actualizamos el contenido de la página
-    consultaEmpleados();
+    
        
 }
 
@@ -44,7 +35,7 @@ $(document).ready(
 
     function(){
 
-        consultaEmpleados();
+        
 
 
 
@@ -52,7 +43,7 @@ $(document).ready(
     // _____- gestión del formulario ______
 
 
-    $('#pushEmpleados').submit(
+    $('#pushSalario').submit(
         function(event) {
 
             event.preventDefault();
@@ -73,15 +64,8 @@ $(document).ready(
             }
             else {
                 //________  valor de los campos ______
-                var dni = document.forms["pushEmpleados"]["dni"].value;
-                var nombre = document.forms["pushEmpleados"]["nombre"].value;
-                var apellidos = document.forms["pushEmpleados"]["apellidos"].value;
-                var telefono = document.forms["pushEmpleados"]["telefono"].value;
-                var direccion = document.forms["pushEmpleados"]["direccion"].value;
-		var cuentaBancaria = document.forms["pushEmpleados"]["cuentaBancaria"].value;
-		var direccionCentro = document.forms["pushEmpleados"]["direccionCentro"].value;
-		
-		var grupo = document.forms["pushEmpleados"]["grupo"].value;
+                var codigo = document.forms["pushSalario"]["codigo"].value;
+       		 var dni = document.forms["pushSalario"]["dni"].value;
                 
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
@@ -89,7 +73,7 @@ $(document).ready(
                 if(tipo_accion == "nuevo") {
 
       
-                    insertarEmpleado(dni, nombre,apellidos,telefono, direccion, cuentaBancaria, direccionCentro, grupo) ;
+                    insertarGrupo(codigo, dni) ;
                         
                 }
                 else {
