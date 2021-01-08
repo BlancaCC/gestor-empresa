@@ -4,7 +4,7 @@
      $query = mysqli_query($dbconn,
 
 
-    "SELECT * FROM grupoEmpleados;"
+    "SELECT p.nombre, e.nombre, e.apellidos FROM perteneceEmpleado p, Empleado e WHERE p.dni = e.dni;"
 
     )
 
@@ -13,14 +13,18 @@
 
      $return = 
          "<tr>
-        <td>nombre</td>
+        <td>nombreGrupo</td>
+	<td>Nombre</td>
+	<td>Apellidos</td>
          </tr>";
 
 
     while ($row = mysqli_fetch_array($query)) {
 
     $return .= "<tr>
-<td> {$row['nombre']}</td>
+<td> {$row[0]}</td>
+<td> {$row[1]}</td>
+<td> {$row['apellidos']}</td>
 </tr>"
     ;
     }

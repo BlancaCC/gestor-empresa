@@ -63,23 +63,73 @@
   
       
 </div>
+    <script src="/recursosHumanos/js/empleados.js"></script>
 
- <button class="accordion"> Gestión grupos </button>
+ <button class="accordion"> Gestión grupos y empleados</button>
 <div class="panel">
+<h2> Gestión de grupos y empleados </h2>
+  <div id="consultaGrupoEmpleados"> </div>
+<h3> Añadir empleado a un grupo </h3>
+       <form id="pushGrupoEmpleado" method="post">
+	  <p>
+	    
+	  <label for="nombre">Nombre:</label> 	  <br>
+          <input type="text" name="nombre" id="nombre" required>
+ 	  <br>
+	  <label for="dni">DNI:</label> 	  <br>
+          <input type="text" name="dni" id="dni" required>
+	  <br><br>
+	  Tipo acción: <br>
+	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
+	  <input type="radio" value="borrar" name="accion" id="borrar"> borrar
+	  <input type="radio" value="modificar" name="accion" id="modificar"> modificar
+	    
 
-  <div id="consultaGrupos"> </div>
+	  
+      </p>
+
+	  <input type="submit" value="submit" name="submit">
+	   </form>
   
 </div>
+
 
     
  <div id="ms"> </div>
 
      
-      <script src="/recursosHumanos/js/empleados.js"></script>
+  
+      <script src="/recursosHumanos/js/grupoEmpleado.js"></script>
 
      
+ <button class="accordion"> Gestión grupos</button>
+<div class="panel">
+<h2> Gestión de grupos</h2>
+ <div id="consultaGrupo"> </div>
+<h3> Registro nuevo grupo </h3>
+       <form id="pushGrupos" method="post">
+	  <p>
+	    
+	  <label for="dni">Nombre:</label> 	  <br>
+          <input type="text" name="nombre" id="nombre" required>
+	 
+	  <br><br>
+	  Tipo acción: <br>
+	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
+	  <input type="radio" value="borrar" name="accion" id="borrar"> borrar
+	  <input type="radio" value="modificar" name="accion" id="modificar"> modificar
+	    
+
+	  
+      </p>
+
+	  <input type="submit" value="submit" name="submit">
+	   </form>
+  
+</div>
 
 
+      <script src="/recursosHumanos/js/grupos.js"></script>
 
 
 <script src="/animation/acordeon.js"></script>

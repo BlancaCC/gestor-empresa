@@ -1,36 +1,36 @@
-/** GESTIÓN DE GRUPOS **/
+/** GESTIÓN DE GRUPOS-EMPLEADOS **/
 
 
-// _____ Consultar grupos
+// _____ Consultar grupo-empleados
 
-function consultaGrupos() {
-$.get('/recursosHumanos/server/consultarGrupos.php', $(this).serialize(),
+function consultaGrupoEmpleado() {
+$.get('/recursosHumanos/server/consultarGrupoEmpleado.php', $(this).serialize(),
                     function (data) {
-                        $("#consultaGrupo").html(data);
+                        $("#consultaGrupoEmpleados").html(data);
                     }
                    );
 }
 
 
-function insertarGrupo(nombre) {
+function insertarGrupoEmpleado(nombre, dni) {
 
     // comprobación parámetros obligatorios
-    if(nombre == "" ) {
+    if(nombre == "" || dni == "") {
         alert( "Hay algún campo que no puede estar vacío");
         return ;
     }
 
     // insercción de los datos 
     
-    var form_data = $("#pushGrupos").serialize();
+    var form_data = $("#pushGrupoEmpleado").serialize();
     
-    $.post( '/recursosHumanos/server/insertarGrupo.php',
+    $.post( '/recursosHumanos/server/insertarGrupoEmpleado.php',
             form_data,
             function(response) {alert(response);}
           );
                     
     // actualizamos el contenido de la página
-    consultaGrupos();
+    consultaGrupoEmpleado();
        
 }
 
@@ -43,7 +43,7 @@ $(document).ready(
 
     function(){
 
-        consultaGrupos();
+        consultaGrupoEmpleado();
 
 
 
@@ -51,7 +51,7 @@ $(document).ready(
     // _____- gestión del formulario ______
 
 
-    $('#pushGrupos').submit(
+    $('#pushGrupoEmpleado').submit(
         function(event) {
 
             event.preventDefault();
@@ -72,8 +72,8 @@ $(document).ready(
             }
             else {
                 //________  valor de los campos ______
-                var nombre = document.forms["pushGrupos"]["nombre"].value;
-       
+                var nombre = document.forms["pushGrupoEmpleado"]["nombre"].value;
+                var dni = document.forms["pushGrupoEmpleado"]["dni"].value;
                 
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
@@ -81,7 +81,7 @@ $(document).ready(
                 if(tipo_accion == "nuevo") {
 
       
-                    insertarGrupo(nombre) ;
+                    insertarGrupoEmpleado(nombre,dni) ;
                         
                 }
                 else {
