@@ -195,30 +195,32 @@ VALUES
 CREATE TABLE Sueldo (
        Codigo INT NOT NULL AUTO_INCREMENT,
        Cantidad DOUBLE NOT NULL,
-       CuentaBancaria VARCHAR(50) NOT NULL,
+       
        PRIMARY KEY (Codigo)
 );
-INSERT INTO Sueldo (Codigo, Cantidad, CuentaBancaria)
+INSERT INTO Sueldo (Codigo, Cantidad)
 VALUES
-('1','1550','ES24178276'),
-('2','1750','ES78178475'),
-('3','2100','ES56473829'),
-('4','970','ES67583277'),
-('5','1750','ES74376611'),
-('6','2330','ES17294736'),
-('7','1460','ES56473829'),
-('8','1230','ES56478829'),
-('9','1230','ES56477829'),
-('10','1560','ES56573829')
+('1','1550'),
+('2','1750'),
+('3','2100'),
+('4','970'),
+('5','1750'),
+('6','2330'),
+('7','1460'),
+('8','1230'),
+('9','1230'),
+('10','1560')
 ;
 
-    CREATE TABLE Empleado (
+
+CREATE TABLE Empleado (
     dni  VARCHAR(9) NOT NULL ,
     nombre VARCHAR(20) NOT NULL,
     apellidos VARCHAR(40) NOT NULL,
     telefono VARCHAR(9),
     direccion VARCHAR(50) ,
     direccionCentro VARCHAR(200) ,
+    cuentaBancaria VARCHAR(200),
     
        PRIMARY KEY (dni),
     FOREIGN KEY (direccionCentro) REFERENCES centro (direccion)
@@ -227,18 +229,18 @@ VALUES
 
     
 INSERT INTO
-Empleado (dni, nombre, apellidos, telefono, direccion, direccionCentro)
+Empleado (dni, nombre, apellidos, telefono, direccion, direccionCentro, cuentaBancaria)
 VALUES
-('24179283W','Victor', 'Castro', '893847348', 'Granada', 'Granada'),
-('24159283X','Laura ', 'Dominguez', '893847123', 'Granada', 'Malaga'),
-('39679283Y','Marcos', 'Parra', '128347348', 'Armilla', 'Jaen'),
-('15679299A','Miriam ', 'Lopez', '837103946', 'Armilla', 'Jaen'),
-('65679333E','Paula ', 'Carretero', '558342348', 'Armilla', 'Granada'),
-('11644283P','Josefa ', 'Hernandez', '722334548', 'Albolote', 'Malaga'),
-('12399283T','Agustin ', 'Monedero', '736341938', 'Viznar', 'Malaga'),
-('59259283A','Alejandro ', 'Gomez', '918267348', 'Armilla', 'Jaen'),
-('91529385O','Maria ', 'Charriel', '182492759', 'Granada', 'Malaga'),
-('73729938S','Rafael ', 'Montero', '823934293', 'Albolote', 'Almeria');
+('24179283W','Victor', 'Castro', '893847348', 'Granada', 'Granada', '22'),
+('24159283X','Laura ', 'Dominguez', '893847123', 'Granada', 'Malaga', '33'),
+('39679283Y','Marcos', 'Parra', '128347348', 'Armilla', 'Jaen', '44'),
+('15679299A','Miriam ', 'Lopez', '837103946', 'Armilla', 'Jaen','55'),
+('65679333E','Paula ', 'Carretero', '558342348', 'Armilla', 'Granada','66'),
+('11644283P','Josefa ', 'Hernandez', '722334548', 'Albolote', 'Malaga','77'),
+('12399283T','Agustin ', 'Monedero', '736341938', 'Viznar', 'Malaga','88'),
+('59259283A','Alejandro ', 'Gomez', '918267348', 'Armilla', 'Jaen','99'),
+('91529385O','Maria ', 'Charriel', '182492759', 'Granada', 'Malaga','11'),
+('73729938S','Rafael ', 'Montero', '823934293', 'Albolote', 'Almeria','00');
 
 CREATE TABLE Recibir (
        Codigo INT NOT NULL,
