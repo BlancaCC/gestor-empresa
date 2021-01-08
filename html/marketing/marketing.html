@@ -3,45 +3,101 @@
   <head>
     <meta charset="UTF-8">
     <title>Roselli marketing</title>
+
     <link rel="stylesheet" type="text/css" href="/style/styles.css">
 
-     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     </head>
+  </head>
 
   <body>
 
-<div class="topnav">
-       <a class="active" href="/marketing/marketing.html"> Marketing</a>
-       <a href="./">Home</a>
-</div>
+    <div class="topnav">
+           <a class="active" href="/marketing/marketing.html"> Marketing</a>
+           <a href="/">Home</a>
+    </div>
 
 
- <button class="accordion"> Gestión clientes </button>
+ <button class="accordion"> grupoClientes </button>
+
 <div class="panel">
 
-  <div id="consultaClientes"> </div>
+
+    <div id="grupoClientes"> </div>
 
 </div>
+
+
+  <button class="accordion"> Cliente </button>
+
+<div class="panel">
+
+    <div id="Cliente"> </div>
+
+</div>
+
+
+  <button class="accordion"> perteneceCliente </button>
+
+<div class="panel">
+
+    <div id="perteneceCliente"> </div>
+
+</div>
+
+
 
 <script>
 
 
-  $(document).ready(
-      $.get('/marketing/server/consultarClientes.php',
-            $(this).serialize(),
-                    function (data) {
-                        $("#consultaClientes").html(data);
-                    }
-                   )
-          );
+    $(document).ready(
+        $.get('/marketing/server/grupoClientes.php',
+              $(this).serialize(),
+                      function (data) {
+                          $("#grupoClientes").html(data);
+                      }
+                     )
+            );
 
 
-  </script>
+</script>
 
 
-    <script src="/animation/acordeon.js"></script>
-    </body>
-</html>
+<script>
+
+
+    $(document).ready(
+        $.get('/marketing/server/Cliente.php',
+              $(this).serialize(),
+                      function (data) {
+                          $("#Cliente").html(data);
+                      }
+                     )
+            );
+
+
+</script>
+
+
+
+<script>
+
+
+    $(document).ready(
+        $.get('/marketing/server/perteneceCliente.php',
+              $(this).serialize(),
+                      function (data) {
+                          $("#perteneceCliente").html(data);
+                      }
+                     )
+            );
+
+
+</script>
+
+
+      <script src="/animation/acordeon.js"></script>
+      </body>
+  </html>
