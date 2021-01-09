@@ -7,7 +7,7 @@
 function insertarSalario(codigo, dni) {
 
     // comprobación parámetros obligatorios
-    if(nombre == "" || dni = "") {
+    if(codigo == "" || dni == "") {
         alert( "Hay algún campo que no puede estar vacío");
         return ;
     }
@@ -16,7 +16,7 @@ function insertarSalario(codigo, dni) {
     
     var form_data = $("#pushSalario").serialize();
     
-    $.post( '/recursosHumanos/server/asignarSalario.php',
+    $.post( '/recursosHumanos/server/asignarSueldo.php',
             form_data,
             function(response) {alert(response);}
           );
@@ -73,7 +73,7 @@ $(document).ready(
                 if(tipo_accion == "nuevo") {
 
       
-                    insertarGrupo(codigo, dni) ;
+                    insertarSalario(codigo, dni) ;
                         
                 }
                 else {
