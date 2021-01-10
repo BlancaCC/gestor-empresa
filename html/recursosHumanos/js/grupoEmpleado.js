@@ -92,10 +92,6 @@ $(document).ready(
             }
            
 
-            // determinar el tipo de acción
-            // (borrar, modificar, insertar ...)
-
-            //if( accion)
         }
     );
     
