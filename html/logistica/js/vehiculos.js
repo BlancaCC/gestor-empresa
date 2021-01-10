@@ -1,10 +1,13 @@
 /** GESTIÓN DE VEHÍCULOS **/
 
 
+import { writeOrderModify } from './modifyVehiculo.js'; 
+
 // _____ Consultar de vehículos
 
 function consultaVehiculos() {
-     $.get('/logistica/server/readVehiculos.php', $(this).serialize(),
+    
+    $.get('/logistica/server/readVehiculos.php',
                     function (data) {
                         $("#consultaVehiculos").html(data);
                     }
@@ -28,11 +31,14 @@ function insertarVehiculo(tipo, localizacion,capacidad,pesomaximo, estado) {
     
     $.post( '/logistica/server/insertarVehiculo.php',
             form_data,
-            function(response) {alert(response);}
+            function(response) {
+                alert(response);
+                consultaVehiculos();
+            }
           );
                     
     // actualizamos el contenido de la página
-    consultaVehiculos();
+    
        
 }
 
@@ -45,12 +51,10 @@ $(document).ready(
 
     function(){
 
+        // ___ visualización de la tabla  ___ 
         consultaVehiculos();
 
-
-
-
-    // _____- gestión del formulario ______
+        // _____- gestión del formulario ______
 
 
     $('#pushVehiculos').submit(
@@ -62,50 +66,69 @@ $(document).ready(
             var acciones = document.getElementsByName('accion');
             var tipo_accion = "nula";
             
-            acciones.forEach((rate) => {
-                if (rate.checked) {
-                    tipo_accion = rate.value; 
+            acciones.forEach(
+                (rate) => {
+                    if (rate.checked) {
+                        tipo_accion = rate.value; 
+                    }
                 }
-}
-                            )
+            );
+            
+            
+            //________  valor de los campos ______
 
-            if(tipo_accion == "nula"){
-              alert(`Debe seleccionar una acción antes de seguir` );  
-            }
-            else {
-                //________  valor de los campos ______
-                var tipo = document.forms["pushVehiculos"]["tipo"].value;
-                var localizacion = document.forms["pushVehiculos"]["localizacion"].value;
-                var capacidad = document.forms["pushVehiculos"]["capacidad"].value;
-                var pesomaximo = document.forms["pushVehiculos"]["pesomaximo"].value;
-                var estado = document.forms["pushVehiculos"]["estado"].value;
+            
+            var matricula = document.forms["pushVehiculos"]["matricula"].value;
+            var tipo = document.forms["pushVehiculos"]["tipo"].value;
+            var localizacion = document.forms["pushVehiculos"]["localizacion"].value;
+            var capacidad = document.forms["pushVehiculos"]["capacidad"].value;
+            var pesomaximo = document.forms["pushVehiculos"]["pesomaximo"].value;
+            var estado = document.forms["pushVehiculos"]["estado"].value;
+
+            
+            // vamos  a procesor la información según convenga
+            var form_data = $(this).serialize();
+            // INSERTAMOS NUEVO VEHÍCULO
+            switch(tipo_accion) {
+                
+            case "nuevo": 
 
                 
-                // vamos  a procesor la información según convenga
-                var form_data = $(this).serialize();
-                // INSERTAMOS NUEVO VEHÍCULO
-                if(tipo_accion == "nuevo") {
+                insertarVehiculo(tipo, localizacion,capacidad,pesomaximo, estado) ;
+                
+                break;
+                
+            case "modificar":
 
-      
-                    insertarVehiculo(tipo, localizacion,capacidad,pesomaximo, estado) ;
-                        
-                }
-                else {
-                    alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
-                    console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
-                }
-            
+                
+                var orden_php = writeOrderModify(matricula,tipo, localizacion,capacidad,pesomaximo, estado)
+                $.post( '/logistica/server/modificarVehiculo.php',
+                        {order: orden_php},
+                        function(response) {alert(response);
+                                            consultaVehiculos();}
+                      );
+                break;
+                
+            default: 
+                alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
+                alert(`Debe seleccionar una acción antes de seguir` );  
+                console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
+                break; 
+
+                
+                
+                
             }
-           
+            
 
             // determinar el tipo de acción
             // (borrar, modificar, insertar ...)
 
             //if( accion)
         }
-    );
-    
-
+    ); // fin submit 
     }
+   
+    
 ); // fin del onready 
-          
+
