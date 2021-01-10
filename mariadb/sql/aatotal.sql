@@ -246,8 +246,10 @@ CREATE TABLE Recibir (
        Codigo INT NOT NULL,
     DNI VARCHAR(9) NOT NULL,
        PRIMARY KEY (Codigo),
-     FOREIGN KEY (Codigo) REFERENCES Sueldo (Codigo),
+     FOREIGN KEY (Codigo) REFERENCES Sueldo (Codigo)
+	ON DELETE CASCADE,
      FOREIGN KEY (DNI) REFERENCES Empleado (dni)
+	ON DELETE CASCADE
 );
     
 INSERT INTO Recibir (Codigo, dni)
@@ -310,11 +312,11 @@ CREATE TABLE perteneceEmpleado (
     
        PRIMARY KEY (nombre, dni),
     
-    FOREIGN KEY (nombre) REFERENCES grupoEmpleados (nombre),
-
+    FOREIGN KEY (nombre) REFERENCES grupoEmpleados (nombre)
+	ON DELETE CASCADE,
     FOREIGN KEY (dni) REFERENCES Empleado (dni)
-
-
+	ON DELETE CASCADE
+	
 );
 
 

@@ -11,6 +11,16 @@ function consultaEmpleados() {
                    );
 }
 
+function eliminarEmpleado() {
+var form_data = $("#deleteEmpleados").serialize();
+ $.post('/recursosHumanos/server/eliminarEmpleado.php', form_data,
+                    function (response) 
+                        {alert(response);
+                    }
+                   );
+consultaEmpleados();
+}
+
 
 function insertarEmpleado(dni, nombre,apellidos,telefono, direccion, cuentaBancaria, direccionCentro, grupo) {
 
@@ -86,28 +96,74 @@ $(document).ready(
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
                 // INSERTAMOS NUEVO Empleado
-                if(tipo_accion == "nuevo") {
+                switch(tipo_accion) {
 
-      
-                    insertarEmpleado(dni, nombre,apellidos,telefono, direccion, cuentaBancaria, direccionCentro, grupo) ;
-                        
-                }
-                else {
-                    alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
-                    console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
-                }
-            
+	      		case "nuevo":
+		            insertarEmpleado(dni, nombre,apellidos,telefono, direccion, cuentaBancaria, direccionCentro, grupo) ;
+		        break;
+			case "eliminar":
+			    eliminaEmpleado(dni);
+			break;	
+                
+		        default:
+		            alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
+		            console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
+		        break;
+            	}
             }
            
 
-            // determinar el tipo de acción
-            // (borrar, modificar, insertar ...)
-
-            //if( accion)
+          
         }
-    );
+
+)//fin del submit push
+$('#deleteEmpleados').submit(
+        function(event) {
+
+            event.preventDefault();
+
+            // determinamos qué acción se ha determinado
+            var acciones = document.getElementsByName('accion');
+            var tipo_accion = "nula";
+            
+            acciones.forEach((rate) => {
+                if (rate.checked) {
+                    tipo_accion = rate.value; 
+                }
+}
+                            )
+
+            if(tipo_accion == "nula"){
+              alert(`Debe seleccionar una acción antes de seguir` );  
+            }
+            else {
+                //________  valor de los campos ______
+                var dni_eliminar = document.forms["deleteEmpleados"]["dni_eliminar"].value;
+                
+                
+                // vamos  a procesor la información según convenga
+                var form_data = $(this).serialize();
+                // INSERTAMOS NUEVO Empleado
+                switch(tipo_accion) {
+
+			case "eliminar":
+			    eliminarEmpleado(dni_eliminar);
+			break;	
+                
+		        default:
+		            alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
+		            console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
+		        break;
+            	}
+            }
+           
+
+          
+        } //fin function
+
+); //fin submit delete
+  } //fin function
+    );//fin ready
     
 
-    }
-); // fin del onready 
           
