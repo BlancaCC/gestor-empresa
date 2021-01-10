@@ -104,6 +104,7 @@ $(document).ready(
 
                 
                 var orden_php = writeOrderModify(matricula,tipo, localizacion,capacidad,pesomaximo, estado)
+                
                 $.post( '/logistica/server/modificarVehiculo.php',
                         {order: orden_php},
                         function(response) {
@@ -125,9 +126,9 @@ $(document).ready(
                 break;
                 
             default: 
-                alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
+               
                 alert(`Debe seleccionar una acción antes de seguir` );  
-                console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
+                
                 break; 
 
                 
