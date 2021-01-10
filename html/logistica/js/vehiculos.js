@@ -26,7 +26,9 @@ function insertarVehiculo(tipo, localizacion,capacidad,pesomaximo, estado) {
     }
 
     // insercción de los datos 
-    
+
+    //esto es redundante, lo idal sería pasarlse los argumentos de la función
+    // CAMBIAR EN EL FUTURO
     var form_data = $("#pushVehiculos").serialize();
     
     $.post( '/logistica/server/insertarVehiculo.php',
@@ -102,17 +104,31 @@ $(document).ready(
 
                 
                 var orden_php = writeOrderModify(matricula,tipo, localizacion,capacidad,pesomaximo, estado)
+                
                 $.post( '/logistica/server/modificarVehiculo.php',
                         {order: orden_php},
-                        function(response) {alert(response);
-                                            consultaVehiculos();}
+                        function(response) {
+                            alert(response);
+                            consultaVehiculos();
+                        }
+                      );
+                break;
+
+            case "borrar":
+
+                 $.post( '/logistica/server/borrarVehiculo.php',
+                        {matricula: matricula},
+                        function(response) {
+                            alert(response);
+                            consultaVehiculos();
+                        }
                       );
                 break;
                 
             default: 
-                alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
+               
                 alert(`Debe seleccionar una acción antes de seguir` );  
-                console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
+                
                 break; 
 
                 
