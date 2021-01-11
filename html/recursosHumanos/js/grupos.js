@@ -77,7 +77,7 @@ $(document).ready(
                 
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
-                // INSERTAMOS NUEVO Empleado
+                // INSERTAMOS NUEVO Grupo
                 if(tipo_accion == "nuevo") {
 
       
@@ -92,10 +92,7 @@ $(document).ready(
             }
            
 
-            // determinar el tipo de acción
-            // (borrar, modificar, insertar ...)
-
-            //if( accion)
+            
         }
     );
     

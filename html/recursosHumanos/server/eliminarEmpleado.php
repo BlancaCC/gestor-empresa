@@ -2,10 +2,22 @@
 
 include('cabecera.php');
 
+  
+        
+
 $return =""; // variable de mensaje con la información 
 
 $dni_eliminar = $_POST['dni_eliminar'];
 
+	//comprobación de que el empleado existe
+	$query = mysqli_query($dbconn, "SELECT * FROM Empleado where dni=$dni_eliminar;")
+
+            or die (mysqli_error($dbconn));
+
+	 $vacio = true;
+	if ($row = mysqli_fetch_array($query)) {
+            $vacio = false;
+         }
     
     // (1) Eliminacion del empleado  
 	
@@ -26,10 +38,11 @@ $dni_eliminar = $_POST['dni_eliminar'];
                     
     	} 
     	else {
-    		$return .= "Error: " . $sql . "" . mysqli_error($dbconn);
+    		$return .= "Error al eliminar empleado. El código de error: " . $sql . "" . mysqli_error($dbconn);
 		
          }
-
+	if ($vacio)
+		 $return = "No existe el empleado a borrar";
 
     echo $return;
 

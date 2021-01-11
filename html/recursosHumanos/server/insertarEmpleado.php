@@ -23,7 +23,7 @@
 
 
     
-    // (1) INSERCIÓN EN TABLA VEHÍCULO   
+    // (1) INSERCIÓN EN TABLA Empleado 
     	$sql = "INSERT INTO Empleado (dni, nombre, apellidos, telefono, direccion,cuentaBancaria, direccionCentro)
     				VALUES ('$dni', '$nombre', '$apellidos', '$telefono', '$direccion', '$cuentaBancaria','$direccionCentro');";
 
@@ -32,7 +32,7 @@
                     
     	} 
     	else {
-    		$return .= "Error: " . $sql . "" . mysqli_error($dbconn);
+    		$return .= "El empleado no ha podido ser insertado. El código de error es: " . $sql . " " . mysqli_error($dbconn);
          }
 
 
@@ -51,7 +51,8 @@
                         
 		} 
 		else {
-			$return .= "Error: " . $sql . " " . mysqli_error($dbconn);
+			
+			$return .= "El empleado no ha podido ser insertado en el grupo. El código de error es: " . $sql . " " . mysqli_error($dbconn);
                         
 			}
 	}

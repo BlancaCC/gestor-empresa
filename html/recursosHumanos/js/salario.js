@@ -21,8 +21,7 @@ function insertarSalario(codigo, dni) {
             function(response) {alert(response);}
           );
                     
-    // actualizamos el contenido de la página
-    
+  
        
 }
 
@@ -69,7 +68,7 @@ $(document).ready(
                 
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
-                // INSERTAMOS NUEVO Empleado
+                // INSERTAMOS NUEVA TUPLA EN RECIBIR
                 if(tipo_accion == "nuevo") {
 
       
@@ -84,10 +83,6 @@ $(document).ready(
             }
            
 
-            // determinar el tipo de acción
-            // (borrar, modificar, insertar ...)
-
-            //if( accion)
         }
     );
     

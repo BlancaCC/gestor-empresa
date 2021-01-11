@@ -18,7 +18,7 @@
 
 
     
-    // (1) INSERCIÓN EN TABLA VEHÍCULO   
+    // (1) INSERCIÓN EN TABLA Recibir   
     	$sql = "INSERT INTO Recibir (codigo, dni)
     				VALUES ('$codigo', '$dni');";
 
