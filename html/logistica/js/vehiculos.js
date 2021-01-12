@@ -11,7 +11,14 @@ function consultaVehiculos() {
                     function (data) {
                         $("#consultaVehiculos").html(data);
                     }
-                   );
+         );
+
+    $.get('/logistica/server/readVehiculosSinLocalizar.php',
+                    function (data) {
+                        $("#consultaSinLocalizar").html(data);
+                    }
+         );
+    
 }
 
 
