@@ -36,6 +36,11 @@ function insertarFactura(Id, Fecha, DNI_proveedor, DNI_comprador, descripcion, I
        
 }
 
+function eliminarFactura() {
+    var form_data = $("#deleteFactura").serialize();
+     $.post('/Contabilidad/server/eliminarFactura.php', form_data, function (response){alert(response);} );
+    facturas();
+}
 
 
 $(document).ready(
@@ -55,8 +60,6 @@ $(document).ready(
                         }
                     }
                 )
-    
-               
                     //________  valor de los campos ______
                     var Id = document.forms["pushFactura"]["Id"].value;
                     var fecha = document.forms["pushFactura"]["fecha"].value;
@@ -71,6 +74,29 @@ $(document).ready(
                 insertarFactura(Id, fecha,DNI_proveedor,DNI_comprador, descripcion, Importe, Tipo) ; 
             }
         )//fin del submit push
+
+        $('#deleteFacturas').submit(
+            function(event) {
+                event.preventDefault();
+                // determinamos qué acción se ha determinado
+                var acciones = document.getElementsByName('accion');
+                var tipo_accion = "nula";
+                
+                acciones.forEach((rate) => {
+                        if (rate.checked) {
+                            tipo_accion = rate.value; 
+                        }
+                    }
+                )
+                    //________  valor de los campos ______
+                    var Id_eliminar = document.forms["deleteFactura"]["Id_eliminar"].value;
+                    var form_data = $(this).serialize();
+            
+                    // ELIMINAMOS FACTURA
+                eliminarFactura(Id_eliminar);
+            } //fin function
+    
+        ); //fin submit delete
     }
     
 );
