@@ -24,7 +24,7 @@ function  writeOrderModify(matricula,tipo, localizacion,capacidad,pesomaximo, es
     var pesomaximo = document.forms["pushVehiculos"]["pesomaximo"].value;
     var estado = document.forms["pushVehiculos"]["estado"].value;
     var matricula = document.forms["pushVehiculos"]["matricula"].value;
-*/
+    */
 
     var add_coma = false;
 
