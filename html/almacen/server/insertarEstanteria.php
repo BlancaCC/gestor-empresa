@@ -3,9 +3,6 @@
 
 
 
-    // -- lectura datos formulario ---
-
-        // variables no nulas
     $centro = $_POST['centro'];
     $zona = $_POST['zona'];
     $alto = $_POST['alto'];
@@ -13,12 +10,11 @@
     $largo = $_POST['largo'];
 
 
+		$return ="";
 
 
-
-    $return ="";
-
-
+		if(preg_match("/\A[A-Za-z]{1,2}[0-9]*\z/",$zona))
+		{
 
     	$sql = "INSERT INTO estanteria (dirCentro,zona,alto,ancho,largo)
     				VALUES ('$centro','$zona','$alto','$ancho','$largo');";
@@ -31,6 +27,10 @@
     		$return .= "Error: " . $sql . "" . mysqli_error($dbconn);
          }
 
+		}
+		else {
+			$return .= "Formato incorrecto de zona. Se deben introducir 1 o 2 letras, seguidas opcionalmente de números.";
+		}
 
 
 
