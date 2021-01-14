@@ -30,11 +30,49 @@
 </div>
 
 
+
+
   <button class="accordion"> Cliente </button>
 
 <div class="panel">
-
+    <h2> Cliente </h2>
     <div id="Cliente"> </div>
+
+
+    <h3> Registros nuevos clientes </h3>
+
+    <form id="pushCliente" method="post">
+        <p>
+
+        	  <label for="Nombre">Nombre:</label> 	  <br>
+                  <input type="text" name="Nombre" id="Nombre" required>
+        	  <br>
+        	  <label for="Correo">Correo: </label> 	  <br>
+                  <input type="text" name="Correo" id="Correo" required>
+        	   <br>
+        	  <label for="DNI">DNI: </label> 	  <br>
+                  <input type="text" name="DNI" id="DNI" required>
+        	  <br>
+        	  <label for="Fecha">Fecha: </label> 	  <br>
+                  <input type="text" name="Fecha" id="Fecha" >
+        	  <br>
+        	  <label for="Publicidad">Publicidad: </label> 	  <br>
+                  <input type="text" name="Publicidad" id="Publicidad" >
+        	  <br>
+        	  <label for="CuentaBancaria">CuentaBancaria: </label> 	  <br>
+                  <input type="text" name="CuentaBancaria" id="CuentaBancaria">
+        	  <br>
+
+        	  Tipo acción: <br>
+        	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
+        	  <input type="radio" value="borrar" name="accion" id="borrar"> borrar
+        	  <input type="radio" value="modificar" name="accion" id="modificar"> modificar
+
+       </p>
+
+       <input type="submit" value="submit" name="submit">
+    </form>
+
 
 </div>
 
