@@ -19,21 +19,79 @@
 </div>
 
 
- <button class="accordion"> Cobros </button>
+ <button class="accordion"> Gestión de los cobros </button>
 
 <div class="panel">
 
+  <h2>Listado de Cobros pendientes</h2>
   <div id="cobrar"> </div>
   
 </div>
 
-<button class="accordion"> Facturas </button>
+<button class="accordion"> Gestión de Facturas </button>
 
-<div class="panel">
+  <div class="panel">
+    
+      <h2>Listado de facturas de la empresa</h2>
+      <div id="facturas"> </div>
+    
 
-  <div id="facturas"> </div>
-  
-</div>
+      <h3> Introducir nueva Factura</h3>
+
+      <form id="pushFactura" method="post">
+        <p>
+          
+          <label for="Id">Identificador:</label> 	  <br>
+                <input type="text" name="Id" id="Id" >
+          <br>
+          <label for="fecha">Fecha: </label> 	  <br>
+                <input type="text" name="fecha" id="fecha" required>
+          <br>
+          <label for="DNI_proveedor">DNI del proveedor: </label> 	  <br>
+                <input type="text" name="DNI_proveedor" id="DNI_proveedor" required>
+          <br>
+          <label for="DNI_comprador">DNI del comprador: </label> 	  <br>
+                <input type="text" name="DNI_comprador" id="DNI_comprador" required>
+          <br>
+          <label for="descripcion">Descripcion: </label> 	  <br>
+                <input type="text" name="descripcion" id="descripcion" required>
+          <br>
+          <label for="importe">Importe: </label> 	  <br>
+                <input type="text" name="importe" id="importe" required>
+          <br>
+          <label for="tipo">Tipo: </label> 	  <br>
+                <input type="text" name="tipo" id="tipo" required>
+          <br>
+
+        </p>
+
+        <input type="submit" name="nuevo" value="insertar">
+      </form>
+      <div id="ms"> </div>
+      
+      <h3> Borrar Factura</h3>
+        <form id="deleteFactura" method="post">
+        <p>  
+          <label for="Id_eliminar">Identificador:</label> 	  <br>
+            <input type="text" name="Id_eliminar" id="Id_eliminar" required>
+          <br>
+        </p>
+    
+        <input type="submit" value="eliminar" name="Borrar">
+         </form>
+     <div id="ms"> </div>
+
+  </div>
+  <script src="/Contabilidad/js/facturas.js"></script>
+
+
+
+
+
+
+
+
+
 
 <button class="accordion"> Sueldos </button>
 
@@ -47,7 +105,7 @@
 
   
   $(document).ready(
-      $.get('/Contabilidad/server/cobrar.php',
+      $.get('/Contabilidad/server/ListarCobrosPendientes.php',
             $(this).serialize(),
                     function (data) {
                         $("#cobrar").html(data);
@@ -58,11 +116,12 @@
   
   </script>
 
-<script>
 
-  
+
+<script>
+  /*
   $(document).ready(
-      $.get('/Contabilidad/server/factura.php',
+      $.get('/Contabilidad/server/MostrarListadoFacturas.php',
             $(this).serialize(),
                     function (data) {
                         $("#facturas").html(data);
@@ -70,12 +129,11 @@
                    )
           );
   
-  
+  */
   </script>
 
-<script>
 
-  
+<script>
   $(document).ready(
       $.get('/Contabilidad/server/sueldo.php',
             $(this).serialize(),
@@ -84,8 +142,6 @@
                     }
                    )
           );
-  
-  
   </script>
 
 

@@ -19,10 +19,12 @@
 </div>
 
 
- <button class="accordion"> Consultar componentes </button>
+<h1> Gestión de Componentes</h1>
+
+ <button class="accordion"> Listar componentes </button>
 <div class="panel">
 
-  <div id="consultarComponentes"> </div>
+  <div id="listarComponentes"> </div>
 
 </div>
 
@@ -30,10 +32,10 @@
 
 
   $(document).ready(
-      $.get('/almacen/server/consultarComponentes.php',
+      $.get('/almacen/server/listarComponentes.php',
             $(this).serialize(),
                     function (data) {
-                        $("#consultarComponentes").html(data);
+                        $("#listarComponentes").html(data);
                     }
                    )
           );
@@ -41,11 +43,168 @@
 
   </script>
 
-
-  <button class="accordion"> Consultar estanterías </button>
+  <button class="accordion"> Localizar componente </button>
  <div class="panel">
 
-   <div id="consultarEstanterias"> </div>
+   <form id="localizarComponente" method="post" action="/almacen/server/localizarComponente.php">
+   <label for="idComp">Id componente:</label> 	  <br>
+         <input type="text" name="idComp" id="idComp" required>
+   <br>
+
+   <input type="submit" value="Localizar" name="localizarComp">
+ </form>
+
+ <div id="server-results-localizarComponente"> </div>
+
+ </div>
+
+ <script src="/almacen/js/localizarComponentes.js"> </script>
+
+
+
+   <button class="accordion"> Insertar componentes </button>
+   <div class="panel">
+     <div class="ventana_componentes">
+       <div id="consulta"> </div>
+
+       <form id="insertarComponente" method="post" action="/almacen/server/insertarComponente.php">
+
+       <p>
+
+         <label for="nombre"> Nombre :</label> 	  <br>
+           <input type="text" name="nombre" id="nombre" required>
+         <br>
+         <label for="cantidad"> Cantidad: </label> 	  <br>
+           <input type="text" name="cantidad" id="cantidad" required>
+         <br>
+         <label for="lote"> Lote: </label> 	  <br>
+           <input type="text" name="lote" id="lote" >
+         <br>
+         <label for="estado"> Estado :</label> 	  <br>
+           <input type="text" name="estado" id="estado" >
+         <br>
+
+       </p>
+
+       <input type="submit" value="Insertar" name="submit">
+         <div id="server-results-insertarComponente"> </div>
+     </form>
+
+
+       </div>
+
+   </div>
+
+   <script src="/almacen/js/insertarComponentes.js"> </script>
+
+
+   <button class="accordion"> Borrar componentes </button>
+   <div class="panel">
+     <h2> Borrar componentes </h2>
+
+     <form id="borrarComponentes" method="post" action="/almacen/server/borrarComponentes.php">
+   <p>
+
+   <label for="idComp">Identificador:</label> 	  <br>
+       <input type="text" name="idComp" id="idComp" required>
+   <br>
+
+   </p>
+
+   <input type="submit" value="Borrar" name="submit">
+   <div id="server-results-borradoComponentes"> </div>
+   </form>
+
+   </div>
+
+
+   <script  type="module" src="/almacen/js/borrarComponentes.js"></script>
+
+
+
+   <button class="accordion"> Almacenar componentes en estantería </button>
+   <div class="panel">
+     <div class="ventana_componentes">
+
+       <form id="componenteEstanteria" method="post" action="/almacen/server/componenteEstanteria.php">
+
+       <p>
+
+         <label for="nombre"> Identificador componente: </label> 	  <br>
+           <input type="text" name="idComp" id="idComp" required>
+         <br>
+         <label for="cantidad"> Identificador estantería: </label> 	  <br>
+           <input type="text" name="idEstanteria" id="idestanteria" required>
+         <br>
+
+       </p>
+
+       <input type="submit" value="Guardar" name="submit">
+         <div id="server-results-componenteEstanteria"> </div>
+     </form>
+
+
+       </div>
+
+   </div>
+
+   <script src="/almacen/js/componenteEstanteria.js"> </script>
+
+
+   <button class="accordion"> Quitar componentes de estantería </button>
+   <div class="panel">
+     <div class="ventana_componentes">
+
+       <form id="quitarComponenteEstanteria" method="post" action="/almacen/server/quitarComponenteEstanteria.php">
+
+       <p>
+
+         <label for="nombre"> Identificador componente: </label> 	  <br>
+           <input type="text" name="idComp" id="idComp" required>
+         <br>
+         <label for="cantidad"> Identificador estantería: </label> 	  <br>
+           <input type="text" name="idEstanteria" id="idestanteria" required>
+         <br>
+
+       </p>
+
+       <input type="submit" value="Borrar" name="submit">
+         <div id="server-results-quitarComponenteEstanteria"> </div>
+     </form>
+
+
+       </div>
+
+   </div>
+
+   <script>
+       $("#quitarComponenteEstanteria").submit(
+           function(event) {
+               event.preventDefault();
+
+               var post_url = $(this).attr("action");
+               var form_data = $(this).serialize();
+
+               $.post( post_url, form_data,
+                       function( response ) {
+                         $("#server-results-quitarComponenteEstanteria").html( response );
+                     }
+                );
+           }
+       );
+   </script>
+
+
+
+   <!--       ESTANTERIAS    -->
+
+
+<h1> Gestión de Estanterías</h1>
+
+  <button class="accordion"> Listar estanterías </button>
+ <div class="panel">
+
+   <div id="consultaEstanterias"> </div>
 
  </div>
 
@@ -56,7 +215,7 @@
        $.get('/almacen/server/consultarEstanterias.php',
              $(this).serialize(),
                      function (data) {
-                         $("#consultarEstanterias").html(data);
+                         $("#consultaEstanterias").html(data);
                      }
                     )
            );
@@ -88,6 +247,76 @@
     </script>
 
 
-    <script src="/animation/acordeon.js"></script>
+
+
+
+         <button class="accordion"> Insertar estantería </button>
+         <div class="panel">
+           <h2> Instertar estantería </h2>
+
+           <h3> Registros nuevos estanterías </h3>
+
+           <form id="pushEstanteria" method="post" action="/almacen/server/insertarEstanteria.php">
+         <p>
+
+         <label for="centro">Centro:</label> 	  <br>
+             <input type="text" name="centro" id="centro" required>
+         <br>
+         <label for="zona">Zona </label> 	  <br>
+             <input type="text" name="zona" id="zona">
+         <br>
+         <label for="alto">Alto: </label> 	  <br>
+             <input type="text" name="alto" id="alto" >
+         <br>
+         <label for="ancho">Ancho: </label> 	  <br>
+             <input type="text" name="ancho" id="ancho">
+         <br>
+         <label for="largo">Largo: </label> 	  <br>
+             <input type="text" name="largo" id="largo">
+         <br>
+
+
+
+         </p>
+
+         <input type="submit" value="Insertar" name="submit">
+         <div id="server-results-estanteria"> </div>
+         </form>
+
+         </div>
+
+         <script  type="module" src="/almacen/js/insertarEstanteria.js"></script>
+
+
+
+         <button class="accordion"> Borrar estantería </button>
+         <div class="panel">
+           <h2> Borrar estantería </h2>
+
+           <form id="borrarEstanteria" method="post" action="/almacen/server/borrarEstanteria.php">
+         <p>
+
+         <label for="idEstanteria">Identificador:</label> 	  <br>
+             <input type="text" name="idEstanteria" id="idEstanteria" required>
+         <br>
+
+         </p>
+
+         <input type="submit" value="Borrar" name="submit">
+         <div id="server-results-borradoEstanteria"> </div>
+         </form>
+
+         </div>
+
+
+         <script  type="module" src="/almacen/js/borrarEstanteria.js"></script>
+
+
+
+
+
+     <script src="/animation/acordeon.js"></script>
+
+
     </body>
 </html>

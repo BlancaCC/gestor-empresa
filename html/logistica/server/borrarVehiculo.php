@@ -14,7 +14,7 @@
     
     
     
-		$sql =  "DELETE FROM VEHICULO
+		$sql =  "DELETE FROM vehiculo
         WHERE matricula = '$matricula';";
           if (mysqli_query($dbconn, $sql)) 
     		{

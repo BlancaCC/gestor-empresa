@@ -56,8 +56,17 @@
       <button class="accordion"> Gestión vehículos </button>
       <div class="panel">
         <h2> Gestión de vehículos </h2>
-        <div id="consultaVehiculos"> </div>
-
+        <div class="fila">
+          
+          <h3 class="columna">  Vehiculos localizados</h3>
+          <h3  class="columna"> Vehículos sin localizar</h3>
+        </div>
+        <div class="fila">
+          
+          <div id="consultaVehiculos" class="columna"> </div>
+          <div id="consultaSinLocalizar" class="columna"></div>
+        </div>
+        
         <h3> Registros nuevos vehículos </h3>
 
         <form id="pushVehiculos" method="post">

@@ -17,7 +17,7 @@
 // -----
     
     $return =""; // variable de mensaje con la información 
-
+    $inserccion = True;
 
     
     // (1) INSERCIÓN EN TABLA VEHÍCULO   
@@ -30,13 +30,14 @@
     	} 
     	else {
     		$return .= "Error: " . $sql . "" . mysqli_error($dbconn);
+            $inserccion = False; 
          }
 
 
 
     // (2) INSERCCIÓN DE LA LOCALIZAR-VEHICULO 
 
-    if(!empty($_POST['localizacion'])) {
+    if(!empty($_POST['localizacion']) && $inserccion == True) {
     	
 		$localizacion = $_POST['localizacion'];
 

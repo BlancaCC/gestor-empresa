@@ -4,9 +4,9 @@
      $query = mysqli_query($dbconn,
 
 
-    "SELECT * FROM Factura;"
+        "SELECT * FROM Factura;"
 
-    )
+        )
 
             or die (mysqli_error($dbconn));
 
@@ -27,16 +27,16 @@
 
     while ($row = mysqli_fetch_array($query)) {
 
-    $return .= "<tr>
-<td> {$row['Id']}</td>
-<td> {$row['Fecha']}</td>
-<td> {$row['DNI_proveedor']}</td>
-<td> {$row['DNI_comprador']}</td>
-<td> {$row['Descripcion']}</td>
-<td> {$row['Importe']}</td>
-<td> {$row['Tipo']}</td>
-</tr>"
-    ;
+            $return .= "<tr>
+        <td> {$row['Id']}</td>
+        <td> {$row['Fecha']}</td>
+        <td> {$row['DNI_proveedor']}</td>
+        <td> {$row['DNI_comprador']}</td>
+        <td> {$row['Descripcion']}</td>
+        <td> {$row['Importe']}</td>
+        <td> {$row['Tipo']}</td>
+        </tr>"
+            ;
     }
 
 
