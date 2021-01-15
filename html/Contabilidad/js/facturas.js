@@ -75,8 +75,9 @@ $(document).ready(
             }
         )//fin del submit push
 
-        $('#deleteFactura').submit(
+        $('#borrarFactura').submit(
             function(event) {
+                alert("Se ha pulsado el botón eliminar");
                 event.preventDefault();
                 // determinamos qué acción se ha determinado
                 var acciones = document.getElementsByName('accion');
@@ -89,7 +90,7 @@ $(document).ready(
                     }
                 )
                     //________  valor de los campos ______
-                    var Id_eliminar = document.forms["deleteFactura"]["Id_eliminar"].value;
+                    var Id_eliminar = document.forms["borrarFactura"]["Id_eliminar"].value;
                     var form_data = $(this).serialize();
             
                     // ELIMINAMOS FACTURA
