@@ -15,15 +15,15 @@ $Id_eliminar = $_POST['Id_eliminar'];
     
     // (1) Eliminacion de la Factura  
 	
-	$sql = "DELETE FROM Cobrar WHERE Id = '$Id_eliminar'; ";
+	$sql = "DELETE FROM Cobrar WHERE Id = $Id_eliminar; ";
 	    mysqli_query($dbconn, $sql);
 
 
-	$sql = "DELETE FROM CalcularBeneficio WHERE Id = '$Id_eliminar';";
+	$sql = "DELETE FROM CalcularBeneficio WHERE Id = $Id_eliminar;";
 		
     	mysqli_query($dbconn, $sql);
 
-    $sql = "DELETE FROM Factura WHERE Id = '$Id_eliminar'; ";
+    $sql = "DELETE FROM Factura WHERE Id = $Id_eliminar; ";
 
 	
     	if (mysqli_query($dbconn, $sql)) {

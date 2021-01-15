@@ -75,7 +75,7 @@ $(document).ready(
             }
         )//fin del submit push
 
-        $('#deleteFacturas').submit(
+        $('#deleteFactura').submit(
             function(event) {
                 event.preventDefault();
                 // determinamos qué acción se ha determinado
@@ -93,7 +93,7 @@ $(document).ready(
                     var form_data = $(this).serialize();
             
                     // ELIMINAMOS FACTURA
-                eliminarFactura(Id_eliminar);
+                    eliminarFactura(Id_eliminar);
             } //fin function
     
         ); //fin submit delete
