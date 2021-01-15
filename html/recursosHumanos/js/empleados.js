@@ -11,7 +11,7 @@ function consultaEmpleados() {
                    );
 }
 
-function eliminarEmpleado() {
+function eliminarEmpleado(dni_eliminar) {
 var form_data = $("#deleteEmpleados").serialize();
  $.post('/recursosHumanos/server/eliminarEmpleado.php', form_data,
                     function (response) 
