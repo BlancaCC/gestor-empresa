@@ -1,0 +1,39 @@
+<?php
+	include('cabecera.php');
+
+    
+
+    // -- lectura datos formulario ---
+
+        // variables no nulas 
+		$nombreGrupo = $_POST['nombreGrupo'];	
+		$DNI = $_POST['DNI'];
+	
+		
+    
+// -----
+    
+    $return =""; // variable de mensaje con la información 
+
+
+    
+    // (1) INSERCIÓN EN TABLA GrupoCliente
+    	$sql = "INSERT INTO GrupoCliente (nombreGrupo, DNI)
+    				VALUES ('$nombreGrupo','$DNI');";
+
+    	if (mysqli_query($dbconn, $sql)) {
+    		$return .=  "Nuevo empleado añadido al grupo.";
+                    
+    	} 
+    	else {
+    		$return .= "Error: " . $sql . "" . mysqli_error($dbconn);
+         }
+
+
+
+    echo $return;
+
+    mysqli_close($dbconn);
+
+ ?>
+           

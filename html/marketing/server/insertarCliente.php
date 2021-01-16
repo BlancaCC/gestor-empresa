@@ -36,13 +36,13 @@
 
 
 
-    /*// (2) INSERCCIÓN DE LA PerteneceGrupo
+   /* // (2) INSERCCIÓN DE LA GrupoCliente
 
     if(!empty($_POST['nombre_grupo'])) {
 
 		$grupo = $_POST['nombre_grupo'];
 
-		$sql = "INSERT INTO perteneceEmpleado (nombre, dni)
+		$sql = "INSERT INTO GrupoCliente (nombre, dni)
 							VALUES ('$grupo','$dni');";
 
 		if (mysqli_query($dbconn, $sql)) {
