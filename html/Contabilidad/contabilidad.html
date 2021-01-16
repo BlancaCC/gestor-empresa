@@ -67,7 +67,7 @@
       </form>
       
       <h3> Borrar Factura</h3>
-      <form id="borrarFactura" method="post">
+      <form id="borrarFacturas" method="post">
         <p>
           
           <label for="Id_eliminar">Identificador:</label> 	  <br>
@@ -82,24 +82,17 @@
 
 
 
+<button class="accordion"> Pago a empleados </button>
 
-
-
-
-
-
-
-<button class="accordion"> Sueldos </button>
-
-<div class="panel">
-
-  <div id="sueldos"> </div>
-  
-</div>
+  <div class="panel">
+    <h5> Listado de empleados de la empresa con la cantidad que deben cobrar y la cuenta bancaria dónde realizar el ingreso</h5>
+    <div id="sueldos"> </div>
+    
+  </div>
 
 <script>
 
-  
+  //Script para El requisito funcional de Listar Cobros Pendientes
   $(document).ready(
       $.get('/Contabilidad/server/ListarCobrosPendientes.php',
             $(this).serialize(),
@@ -108,18 +101,30 @@
                     }
                    )
           );
-  
-  
   </script>
 
 
 
 <script>
-  /*
+  //Script para el borrado de Facturas
   $(document).ready(
-    $('#borrarFactura').submit( alert("Holaaa"))
+    $('#borrarFacturas').submit(
+      function(event) {
+        event.preventDefault();
+        //________  valor de los campos ______
+        var Id_eliminar = document.forms["borrarFacturas"]["Id_eliminar"].value;
+        var form_data = $(this).serialize();
+        var form_data = $("#borrarFacturas").serialize();
+        $.post('/Contabilidad/server/eliminarFactura.php', form_data, function (response){alert(response);} );
+        $.get('/Contabilidad/server/MostrarListadoFacturas.php', $(this).serialize(),
+                       function (data) {
+                           $("#facturas").html(data);
+                       }
+        );
+      } //fin function
+    )
   );
-  */
+
   </script>
 
 

@@ -74,29 +74,7 @@ $(document).ready(
                 insertarFactura(Id, fecha,DNI_proveedor,DNI_comprador, descripcion, Importe, Tipo) ; 
             }
         )//fin del submit push
-
-        $('#borrarFactura').submit(
-            function(event) {
-                event.preventDefault();
-                // determinamos qué acción se ha determinado
-                var acciones = document.getElementsByName('accion');
-                var tipo_accion = "nula";
-                
-                acciones.forEach((rate) => {
-                        if (rate.checked) {
-                            tipo_accion = rate.value; 
-                        }
-                    }
-                )
-                    //________  valor de los campos ______
-                    var Id_eliminar = document.forms["borrarFactura"]["Id_eliminar"].value;
-                    var form_data = $(this).serialize();
-            
-                    // ELIMINAMOS FACTURA
-                    eliminarFactura(Id_eliminar);
-            } //fin function
-    
-        ); //fin submit delete
+        
     }
     
 );
