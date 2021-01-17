@@ -135,6 +135,19 @@
           );
   </script>
 
+  <script>
+
+  //Script para El requisito funcional de Pago a empleado
+  $(document).ready(
+      $.get('/Contabilidad/server/sueldo.php',
+            $(this).serialize(),
+                    function (data) {
+                        $("#sueldos").html(data);
+                    }
+                   )
+          );
+  </script>
+
 
 
 <script>
@@ -190,18 +203,6 @@
     function  writeOrderModify(Id,fecha, DNI_proveedor,DNI_comprador,descripcion, importe, tipo) {
 
       var order = 'UPDATE Factura SET ';
-
-      // añadir al final  where vehiculo.matricula = matricula && localizacion.matricula = matricula; 
-
-      /**
-      var tipo = document.forms["pushVehiculos"]["tipo"].value;
-      var localizacion = document.forms["pushVehiculos"]["localizacion"].value;
-      var capacidad = document.forms["pushVehiculos"]["capacidad"].value;
-      var pesomaximo = document.forms["pushVehiculos"]["pesomaximo"].value;
-      var estado = document.forms["pushVehiculos"]["estado"].value;
-      var matricula = document.forms["pushVehiculos"]["matricula"].value;
-      */
-
       var add_coma = false;
 
       if( fecha != "") {
@@ -253,14 +254,8 @@
           
           order += ' Factura.tipo = ' + "'" +  tipo + "'" ;       
       }
-
-
       order +=' WHERE Factura.Id = '+ "'" + Id + "';" ;
-
-
       return order; 
-
-
     }
 
     $(document).ready(
