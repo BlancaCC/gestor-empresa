@@ -8,7 +8,7 @@
 
             $.post( post_url, form_data,
                     function( response ) {
-                      $("#server-results-componenteEstanteria").html( response );
+                      alert( response );
                   }
              );
         }

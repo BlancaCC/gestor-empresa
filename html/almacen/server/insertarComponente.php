@@ -6,22 +6,27 @@
 		$lote = $_POST['lote'];
     $estado = $_POST['estado'];
 
-
-		// buscamos si no se ha declarado antes esa dirección o ese número de telefono
-		$sql = "INSERT INTO componente( nombre,cantidad,lote,estado)
-VALUES ('$nombre','$cantidad','$lote','$estado');";
-
-               if (mysqli_query($dbconn, $sql))
+		if(!preg_match("/\A[0-9]*\z/",$cantidad))
 		{
-
-			echo "Nueva componente guardada";
+			echo "Introducir un valor numérico en cantidad";
 		}
 		else
 		{
-			echo "Error: " . $sql . "" . mysqli_error($dbconn);
+			$sql = "INSERT INTO componente( nombre,cantidad,lote,estado)
+			VALUES ('$nombre','$cantidad','$lote','$estado');";
+
+	               if (mysqli_query($dbconn, $sql))
+			{
+
+				echo "Nueva componente guardada";
+			}
+			else
+			{
+				echo "Error: " . $sql . "" . mysqli_error($dbconn);
+			}
 		}
 
 
-	mysqli_close($dbconn);
+	  mysqli_close($dbconn);
 
 ?>
