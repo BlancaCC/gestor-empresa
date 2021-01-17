@@ -36,13 +36,6 @@ function insertarFactura(Id, Fecha, DNI_proveedor, DNI_comprador, descripcion, I
        
 }
 
-function eliminarFactura() {
-    var form_data = $("#borrarFactura").serialize();
-     $.post('/Contabilidad/server/eliminarFactura.php', form_data, function (response){alert(response);} );
-    facturas();
-}
-
-
 $(document).ready(
     function(){
         facturas();

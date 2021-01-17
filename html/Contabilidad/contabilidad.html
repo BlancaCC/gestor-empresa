@@ -148,31 +148,6 @@
           );
   </script>
 
-
-
-<script>
-  //Script para el borrado de Facturas
-  $(document).ready(
-    $('#borrarFacturas').submit(
-      function(event) {
-        event.preventDefault();
-        //________  valor de los campos ______
-        var Id_eliminar = document.forms["borrarFacturas"]["Id_eliminar"].value;
-        var form_data = $(this).serialize();
-        var form_data = $("#borrarFacturas").serialize();
-        $.post('/Contabilidad/server/eliminarFactura.php', form_data, function (response){alert(response);} );
-        $.get('/Contabilidad/server/MostrarListadoFacturas.php', $(this).serialize(),
-                       function (data) {
-                           $("#facturas").html(data);
-                       }
-        );
-      } //fin function
-    )
-  );
-
-  </script>
-
-
   <script>
     //Script para el borrado de Facturas
     $(document).ready(
