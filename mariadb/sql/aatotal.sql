@@ -127,6 +127,7 @@ VALUES
 ('12322564jee', 'camion', 200, 700, 'cargado' ),
 ('11111564jee', 'furgoneta', 100, 289, 'vacio' ),
 ('12322564jpp', 'furgoneta', 100, 289, 'cargado' ),
+('12322565jpp', 'furgoneta', 100, 289, 'ejemplo_sin_localizar' ), 
 ('12134564jfe', 'furgoneta', 100, 289, 'cargado' );
 
 
