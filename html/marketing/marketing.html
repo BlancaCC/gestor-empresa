@@ -1,141 +1,147 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Roselli marketing</title>
 
-    <link rel="stylesheet" type="text/css" href="/style/styles.css">
+   <head>
+     <title>Roselli marketing</title>
+     <meta charset="UTF-8">
+     
+     <link rel="stylesheet" type="text/css" href="/style/styles.css">
+     
+     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  </head>
-
-  <body>
-
-    <div class="topnav">
-           <a class="active" href="/marketing/marketing.html"> Marketing</a>
-           <a href="/">Home</a>
-    </div>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   
 
 
- <button class="accordion"> grupoClientes </button>
-
-<div class="panel">
-
-
-    <div id="grupoClientes"> </div>
-
-</div>
+   <body>
+    
+	    <div class="topnav">
+		    <a class="active" href="/marketing/marketing.html">Marketing</a>
+		    <a href="/">Home</a>
+	    </div>
 
 
 
+		<button class="accordion"> Gestión clientes </button>
+		<div class="panel">
+		<h2> Gestión de clientes </h2>
+		  <div id="consultarCliente"> </div>
+		<h3> Registros nuevos clientes </h3>
 
-  <button class="accordion"> Cliente </button>
+		        <form id="pushCliente" method="post">
 
-<div class="panel">
-    <h2> Cliente </h2>
-    <div id="Cliente"> </div>
+			     <p>
+			    
+					  <label for="Nombre">Nombre:</label> 	  <br>
+				          <input type="text" name="Nombre" id="Nombre" required>
+					  <br>
+					  <label for="Correo">Correo: </label> 	  <br>
+				          <input type="text" name="Correo" id="Correo" required>
+					   <br>
+					  <label for="DNI">DNI: </label> 	  <br>
+				          <input type="text" name="DNI" id="DNI" required>
+					  <br>
+					  <label for="Fecha">Fecha: </label> 	  <br>
+				          <input type="text" name="Fecha" id="Fecha" >
+					  <br>
+					  <label for="Publicidad">Publicidad: </label> 	  <br>
+				          <input type="text" name="Publicidad" id="Publicidad" >
+					  <br>
+					  <label for="CuentaBancaria">CuentaBancaria: </label> 	  <br>
+				          <input type="text" name="CuentaBancaria" id="CuentaBancaria">
+					  <br>
+		 
+		         </p>
 
+			     <input type="submit" name="nuevo" value="guardar">
 
-    <h3> Registros nuevos clientes </h3>
+			    </form>
 
-    <form id="pushCliente" method="post">
-        <p>
-
-        	  <label for="Nombre">Nombre:</label> 	  <br>
-                  <input type="text" name="Nombre" id="Nombre" required>
-        	  <br>
-        	  <label for="Correo">Correo: </label> 	  <br>
-                  <input type="text" name="Correo" id="Correo" required>
-        	   <br>
-        	  <label for="DNI">DNI: </label> 	  <br>
-                  <input type="text" name="DNI" id="DNI" required>
-        	  <br>
-        	  <label for="Fecha">Fecha: </label> 	  <br>
-                  <input type="text" name="Fecha" id="Fecha" >
-        	  <br>
-        	  <label for="Publicidad">Publicidad: </label> 	  <br>
-                  <input type="text" name="Publicidad" id="Publicidad" >
-        	  <br>
-        	  <label for="CuentaBancaria">CuentaBancaria: </label> 	  <br>
-                  <input type="text" name="CuentaBancaria" id="CuentaBancaria">
-        	  <br>
-
-        	  Tipo acción: <br>
-        	  <input type="radio" value="nuevo" name="accion" id="nuevo"> guardar
-        	  <input type="radio" value="borrar" name="accion" id="borrar"> borrar
-        	  <input type="radio" value="modificar" name="accion" id="modificar"> modificar
-
-       </p>
-
-       <input type="submit" value="submit" name="submit">
-    </form>
+		 <div id="ms"> </div>
 
 
-</div>
+		<h3> Eliminar empleado </h3>
 
+		        <form id="deleteCliente" method="post">
 
-  <button class="accordion"> perteneceCliente </button>
+			     <p>
+			    
+			        <label for="DNI">DNI:</label> 	  <br>
+		            <input type="text" name="DNI" id="DNI" required>
+		            <br>
+			  
+		     	 </p>
 
-<div class="panel">
+			     <input type="submit" value="eliminar" name="eliminar">
 
-    <div id="perteneceCliente"> </div>
+			    </form>
 
-</div>
+		 <div id="ms"> </div>
+		
 
-
-
-<script>
-
-
-    $(document).ready(
-        $.get('/marketing/server/grupoClientes.php',
-              $(this).serialize(),
-                      function (data) {
-                          $("#grupoClientes").html(data);
-                      }
-                     )
-            );
-
-
-</script>
-
-
-<script>
-
-
-    $(document).ready(
-        $.get('/marketing/server/Cliente.php',
-              $(this).serialize(),
-                      function (data) {
-                          $("#Cliente").html(data);
-                      }
-                     )
-            );
-
-
-</script>
+		    <script src="/marketing/js/Cliente.js"></script>
 
 
 
-<script>
 
 
-    $(document).ready(
-        $.get('/marketing/server/perteneceCliente.php',
-              $(this).serialize(),
-                      function (data) {
-                          $("#perteneceCliente").html(data);
-                      }
-                     )
-            );
+		<button class="accordion"> Gestión grupos y clientes</button>
+		<div class="panel">
+		<h2> Gestión de grupos y clientes </h2>
+		  <div id="consultarGrupoCliente"> </div>
+		<h3> Añadir cliente a un grupo </h3>
+
+		    <form id="pushGrupoCliente" method="post">
+
+			  <p>
+				  <label for="nombreGrupo">nombreGrupo:</label> 	  <br>
+			          <input type="text" name="nombreGrupo" id="nombreGrupo" required>
+			 	  <br>
+				  <label for="DNI">DNI:</label> 	  <br>
+			          <input type="text" name="DNI" id="DNI" required>
+				  <br><br>
+		 
+		      </p>
+
+			  <input type="submit" name="nuevo" value="guardar">
+
+			</form>
+		  
+		</div>
+
+		 <div id="ms"> </div>
+		
+			<script src="/marketing/js/GrupoCliente.js"></script>
+
+		     
+		
+		<button class="accordion"> Gestión grupos</button>
+		<div class="panel">
+		<h2> Gestión de grupos</h2>
+		 <div id="consultarGrupo"> </div>
+		<h3> Registro nuevo grupo </h3>
+		       <form id="pushGrupo" method="post">
+			    <p>
+			    
+				  <label for="nombreGrupo">nombreGrupo:</label> 	  <br>
+			          <input type="text" name="nombreGrupo" id="nombreGrupo" required>
+				  <br>
+			 
+			    </p>
+
+			    <input type="submit" name="nuevo" value="guardar">
+
+			   </form>
+		  
+		</div>
+		 <div id="ms"> </div>
+
+		      <script src="/marketing/js/Grupo.js"></script>
 
 
-</script>
+		 
 
-
-      <script src="/animation/acordeon.js"></script>
-      </body>
-  </html>
+		<script src="/animation/acordeon.js"></script>
+</body>
+</html>

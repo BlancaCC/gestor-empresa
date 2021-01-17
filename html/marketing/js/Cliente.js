@@ -11,8 +11,8 @@ function consultarCliente() {
                    );
 }
 
-/*
-function eliminarCliente(dni_eliminar) {
+
+function eliminarCliente(DNI) {
 var form_data = $("#deleteCliente").serialize();
  $.post('/marketing/server/eliminarCliente.php', form_data,
                     function (response) 
@@ -21,7 +21,7 @@ var form_data = $("#deleteCliente").serialize();
                    );
 consultarCliente();
 }
-*/
+
 
 
 function insertarCliente(Nombre, Correo, DNI, Fecha, Publicidad, CuentaBancaria) {

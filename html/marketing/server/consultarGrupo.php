@@ -4,7 +4,7 @@
      $query = mysqli_query($dbconn,
 
 
-    "SELECT * FROM grupoClientes;"
+    "SELECT * FROM Grupo;"
 
     )
 
