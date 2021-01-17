@@ -109,7 +109,7 @@ $(document).ready(
                 
             case "modificar":
 
-                
+
                 var orden_php = writeOrderModify(matricula,tipo, localizacion,capacidad,pesomaximo, estado)
                 
                 $.post( '/logistica/server/modificarVehiculo.php',

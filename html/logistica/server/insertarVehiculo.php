@@ -13,11 +13,21 @@
         //pueden estar nulas
 		$peso_maximo = $_POST['pesomaximo'];
 		$estado = $_POST['estado'];
+
+    
     
 // -----
     
     $return =""; // variable de mensaje con la información 
     $inserccion = True;
+
+
+    // comprobación de que los datos numéricos lo son
+
+    if (!preg_match("/[0-9]+/", $capacidad) || !preg_match("/[0-9]+/", $peso_maximo) ) {
+        echo "Insercción fallida, capacidad y peso máximo deben ser de tipo numérico";
+    return 0;
+    }
 
     
     // (1) INSERCIÓN EN TABLA VEHÍCULO   
