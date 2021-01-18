@@ -102,7 +102,7 @@ $(document).ready(
 
 )//fin del submit push
 
-/*
+
 $('#deleteCliente').submit(
         function(event) {
 
@@ -138,7 +138,7 @@ $('#deleteCliente').submit(
           
         } //fin function
 
-); //fin submit delete*/
+); //fin submit delete
 
   } //fin function
     );//fin ready

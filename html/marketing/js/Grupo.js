@@ -67,30 +67,24 @@ $(document).ready(
 }
                             )
 
-            if(tipo_accion == "nula"){
-              alert(`Debe seleccionar una acción antes de seguir` );  
-            }
-            else {
-                //________  valor de los campos ______
-                var nombreGrupo = document.forms["pushGrupo"]["nombreGrupo"].value;
+            
+            
+         //________  valor de los campos ______
+            var nombreGrupo = document.forms["pushGrupo"]["nombreGrupo"].value;
        
                 
-                // vamos  a procesor la información según convenga
-                var form_data = $(this).serialize();
-                // INSERTAMOS NUEVO Grupo
-                if(tipo_accion == "nuevo") {
-
+             // vamos  a procesor la información según convenga
+            var form_data = $(this).serialize();
+            // INSERTAMOS NUEVO Grupo
+            if(tipo_accion == "nuevo") {
       
-                    insertarGrupo(nombreGrupo) ;
+                insertarGrupo(nombreGrupo) ;
                         
-                }
-                else {
-                    alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
-                    console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
-                }
-            
             }
-           
+            else {
+                 alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
+                 console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
+            }
 
             
         }
