@@ -17,7 +17,7 @@
 
     
     // (1) INSERCIÓN EN TABLA Grupo   
-    	$sql = "INSERT INTO Grupo (nombreGrupo)
+    	$sql = "INSERT INTO grupoClientes (nombreGrupo)
     				VALUES ('$nombreGrupo');";
 
     	if (mysqli_query($dbconn, $sql)) {

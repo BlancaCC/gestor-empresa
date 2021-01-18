@@ -17,8 +17,8 @@
 
 
     
-    // (1) INSERCIÓN EN TABLA GrupoCliente
-    	$sql = "INSERT INTO GrupoCliente (nombreGrupo, DNI)
+    // (1) INSERCIÓN EN TABLA perteneceCliente
+    	$sql = "INSERT INTO perteneceCliente (nombreGrupo, DNI)
     				VALUES ('$nombreGrupo','$DNI');";
 
     	if (mysqli_query($dbconn, $sql)) {
