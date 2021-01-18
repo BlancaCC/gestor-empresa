@@ -61,30 +61,24 @@ $(document).ready(
             var tipo_accion = "nula";
             
             acciones.forEach((rate) => {
-                if (rate.checked) {
-                    tipo_accion = rate.value; 
-                }
-}
-                            )
-
+                        if (rate.checked) {
+                            tipo_accion = rate.value; 
+                        }
+                    }
+                )
             
-            
-         //________  valor de los campos ______
+            //Valor de los campos
             var nombreGrupo = document.forms["pushGrupo"]["nombreGrupo"].value;
        
                 
-             // vamos  a procesor la información según convenga
             var form_data = $(this).serialize();
-            // INSERTAMOS NUEVO Grupo
-            if(tipo_accion == "nuevo") {
+
+            // IInsertamos un nuevo grupo a la tabla
       
                 insertarGrupo(nombreGrupo) ;
                         
-            }
-            else {
-                 alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
-                 console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
-            }
+            
+            
 
             
         }

@@ -12,7 +12,7 @@ $.get('/marketing/server/consultarGrupoCliente.php', $(this).serialize(),
 }
 
 
-function insertarGrupoCliente(nombre, dni) {
+function insertarGrupoCliente(nombreGrupo, DNI) {
 
     // comprobación parámetros obligatorios
     if(nombreGrupo == "" || DNI == "") {
@@ -46,11 +46,6 @@ $(document).ready(
         consultarGrupoCliente();
 
 
-
-
-    // _____- gestión del formulario ______
-
-
     $('#pushGrupoCliente').submit(
         function(event) {
 
@@ -64,8 +59,7 @@ $(document).ready(
                 if (rate.checked) {
                     tipo_accion = rate.value; 
                 }
-}
-                            )
+            })
 
             if(tipo_accion == "nula"){
               alert(`Debe seleccionar una acción antes de seguir` );  
@@ -77,17 +71,10 @@ $(document).ready(
                 
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
-                // INSERTAMOS NUEVO Grupo-Empleado
-                if(tipo_accion == "nuevo") {
 
+                // INSERTAMOS NUEVO Grupo-Empleado
       
-                    insertarGrupoEmpleado(nombreGrupo,DNI) ;
-                        
-                }
-                else {
-                    alert(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );
-                    console.log(`Se ha seleccionado ${tipo_accion}, que no tiene nada programado` );  
-                }
+                insertarGrupoEmpleado(nombreGrupo,DNI) ;
             
             }
            

@@ -59,11 +59,6 @@ $(document).ready(
         consultarCliente();
 
 
-
-
-    // _____- gestión del formulario ______
-
-
     $('#pushCliente').submit(
         function(event) {
 
@@ -77,8 +72,8 @@ $(document).ready(
                 if (rate.checked) {
                     tipo_accion = rate.value; 
                 }
-}
-                            )
+            }
+            )
 
            
                 //________  valor de los campos ______
@@ -119,17 +114,15 @@ $('#deleteCliente').submit(
 }
                             )
 
-          
-            
                 //________  valor de los campos ______
-                var dni_eliminar = document.forms["deleteCliente"]["dni_eliminar"].value;
+                var DNI = document.forms["deleteCliente"]["DNI"].value;
                 
                 
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
 		
                 // INSERTAMOS NUEVO Empleado
-		 eliminarEmpleado(dni_eliminar);
+		 eliminarEmpleado(DNI);
               
 
             
@@ -140,8 +133,8 @@ $('#deleteCliente').submit(
 
 ); //fin submit delete
 
-  } //fin function
-    );//fin ready
+} //fin function
+);//fin ready
     
 
           
