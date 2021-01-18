@@ -48,6 +48,7 @@ $(document).ready(
 
     $('#pushGrupoCliente').submit(
         function(event) {
+            
 
             event.preventDefault();
 
@@ -61,10 +62,6 @@ $(document).ready(
                 }
             })
 
-            if(tipo_accion == "nula"){
-              alert(`Debe seleccionar una acción antes de seguir` );  
-            }
-            else {
                 //________  valor de los campos ______
                 var nombreGrupo = document.forms["pushGrupoCliente"]["nombreGrupo"].value;
                 var DNI = document.forms["pushGrupoEmpleado"]["DNI"].value;

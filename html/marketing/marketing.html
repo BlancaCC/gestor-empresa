@@ -22,49 +22,72 @@
 	    </div>
 
 
-
-		<button class="accordion"> Gestión clientes </button>
+		<button class="accordion"> Gestión grupos y clientes</button>
 		<div class="panel">
-		<h2> Gestión de clientes </h2>
-		  <div id="consultarCliente"> </div>
-		<h3> Registros nuevos clientes </h3>
-
-		        <form id="pushCliente" method="post">
-
-			     <p>
+		<h2> Gestión de grupos y de clientes</h2>
+		 <div id="consultarGrupoCliente"> </div>
+		<h3> Registro nuevo grupo y cliente </h3>
+		       <form id="pushGrupoCliente" method="post">
+			    <p>
 			    
-					  <label for="Nombre">Nombre:</label> 	  <br>
-				          <input type="text" name="Nombre" id="Nombre" required>
-					  <br>
-					  <label for="Correo">Correo: </label> 	  <br>
-				          <input type="text" name="Correo" id="Correo" required>
-					   <br>
-					  <label for="DNI">DNI: </label> 	  <br>
-				          <input type="text" name="DNI" id="DNI" required>
-					  <br>
-					  <label for="Fecha">Fecha: </label> 	  <br>
-				          <input type="text" name="Fecha" id="Fecha" >
-					  <br>
-					  <label for="Publicidad">Publicidad: </label> 	  <br>
-				          <input type="text" name="Publicidad" id="Publicidad" >
-					  <br>
-					  <label for="CuentaBancaria">CuentaBancaria: </label> 	  <br>
-				          <input type="text" name="CuentaBancaria" id="CuentaBancaria">
-					  <br><br>
-		 
-		         </p>
+				  <label for="nombreGrupo">nombreGrupo:</label> 	  <br>
+			          <input type="text" name="nombreGrupo" id="nombreGrupo" required>
+				  <br>
+				  <label for="DNI">DNI:</label> 	  <br>
+			          <input type="text" name="DNI" id="DNI" required>
+				  <br>
+			 
+			    </p>
 
-			     <input type="submit" name="nuevo" value="guardar">
+			    <input type="submit" name="nuevo" value="guardar">
 
-			    </form>
+			   </form>
+		  
+		</div>
 
-		 <div id="ms"> </div>
+		      <script src="/marketing/js/GrupoCliente.js"></script>
+
+		     
+		
+
+
+<button class="accordion"> Gestión clientes</button>
+		<div class="panel">
+		<h2> Gestión de clientes</h2>
+		 <div id="consultarCliente"> </div>
+		<h3> Registro nuevo cliente </h3>
+		       <form id="pushCliente" method="post">
+			    <p>
+			    
+				  <label for="Nombre">Nombre:</label> 	  <br>
+			          <input type="text" name="Nombre" id="Nombre" required>
+				  <br>
+				  <label for="Correo">Correo:</label> 	  <br>
+			          <input type="text" name="Correo" id="Correo" required>
+				  <br>
+				  <label for="DNI">DNI:</label> 	  <br>
+			          <input type="text" name="DNI" id="DNI" required>
+				  <br>
+				  <label for="Publicidad">Publicidad:</label> 	  <br>
+			          <input type="text" name="Publicidad" id="Publicidad" required>
+				  <br>
+				  <label for="Fecha">Fecha:</label> 	  <br>
+			          <input type="text" name="Fecha" id="Fecha" required>
+				  <br>
+				  <label for="CuentaBancaria">CuentaBancaria:</label> 	  <br>
+			          <input type="text" name="CuentaBancaria" id="CuentaBancaria" required>
+				  <br>
+			 
+			    </p>
+
+			    <input type="submit" name="nuevo" value="guardar">
+
+			   </form>
 
 
 		<h3> Eliminar empleado </h3>
 
 		        <form id="deleteCliente" method="post">
-
 			     <p>
 			    
 			        <label for="DNI">DNI:</label> 	  <br>
@@ -77,46 +100,14 @@
 
 			    </form>
 
-		 <div id="ms"> </div>
-		</div>
-		
-
-		    <script src="/marketing/js/Cliente.js"></script>
-
-
-
-
-
-		<button class="accordion"> Gestión grupos y clientes</button>
-		<div class="panel">
-		<h2> Gestión de grupos y clientes </h2>
-		  <div id="consultarGrupoCliente"> </div>
-		<h3> Añadir cliente a un grupo </h3>
-
-		    <form id="pushGrupoCliente" method="post">
-
-			  <p>
-				  <label for="nombreGrupo">nombreGrupo:</label> 	  <br>
-			          <input type="text" name="nombreGrupo" id="nombreGrupo" required>
-			 	  <br>
-				  <label for="DNI">DNI:</label> 	  <br>
-			          <input type="text" name="DNI" id="DNI" required>
-				  <br><br>
-		 
-		      </p>
-
-			  <input type="submit" name="nuevo" value="guardar">
-
-			</form>
 		  
 		</div>
 
-		 <div id="ms"> </div>
-		
-			<script src="/marketing/js/GrupoCliente.js"></script>
+		      <script src="/marketing/js/Cliente.js"></script>
 
-		     
-		
+
+
+
 		<button class="accordion"> Gestión grupos</button>
 		<div class="panel">
 		<h2> Gestión de grupos</h2>
@@ -136,7 +127,6 @@
 			   </form>
 		  
 		</div>
-		 <div id="ms"> </div>
 
 		      <script src="/marketing/js/Grupo.js"></script>
 

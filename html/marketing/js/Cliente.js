@@ -24,16 +24,16 @@ consultarCliente();
 
 
 
-function insertarCliente(Nombre, Correo, DNI, Fecha, Publicidad, CuentaBancaria) {
+function insertarCliente(Nombre, Correo, DNI, Publicidad, Fecha, CuentaBancaria) {
 
     // comprobación parámetros obligatorios
     if(Nombre == "" || Correo == "" ||
-       DNI  == "" || Fecha == "") {
+       DNI  == "" || Publicidad == "") {
         alert( "Hay algún campo que no puede estar vacío");
         return ;
     }
 
-    // insercción de los datos 
+    // inserción de los datos 
     
     var form_data = $("#pushCliente").serialize();
     
@@ -80,14 +80,14 @@ $(document).ready(
                 var Nombre = document.forms["pushCliente"]["Nombre"].value;
                 var Correo = document.forms["pushCliente"]["Correo"].value;
                 var DNI = document.forms["pushCliente"]["DNI"].value;
-                var Fecha = document.forms["pushCliente"]["Fecha"].value;
                 var Publicidad = document.forms["pushCliente"]["Publicidad"].value;
+                var Fecha = document.forms["pushCliente"]["Fecha"].value;
         		var cuentaBancaria = document.forms["pushCliente"]["cuentaBancaria"].value;
 
                 // vamos  a procesor la información según convenga
                 var form_data = $(this).serialize();
                 // INSERTAMOS NUEVO Empleado
- 		insertarCliente(Nombre, Correo, DNI, Fecha, Publicidad, CuentaBancaria) ;
+ 		insertarCliente(Nombre, Correo, DNI, Publicidad, Fecha, CuentaBancaria) ;
               
             
            

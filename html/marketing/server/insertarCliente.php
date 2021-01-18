@@ -8,11 +8,9 @@
         // variables no nulas
 		$Nombre = $_POST['Nombre'];
 		$Correo = $_POST['Correo'];
-    $DNI = $_POST['DNI'];
-		$Fecha = $_POST['Fecha'];
-
-        //pueden estar nulas
+        $DNI = $_POST['DNI'];
 		$Publicidad = $_POST['Publicidad'];
+        $Fecha = $_POST['Fecha'];
 		$CuentaBancaria = $_POST['CuentaBancaria'];
 
 
@@ -23,8 +21,8 @@
 
 
     // (1) INSERCIÓN EN TABLA CLIENTE
-    	$sql = "INSERT INTO Cliente (Nombre, Correo, DNI, Fecha, Publicidad, CuentaBancaria)
-    				VALUES ('$Nombre', '$Correo', '$DNI', '$Fecha', '$Publicidad', '$CuentaBancaria');";
+    	$sql = "INSERT INTO Cliente (Nombre, Correo, DNI, Publicidad, Fecha, CuentaBancaria)
+    				VALUES ('$Nombre', '$Correo', '$DNI', '$Publicidad', '$Fecha', '$CuentaBancaria');";
 
     	if (mysqli_query($dbconn, $sql)) {
     		$return .=  "Nuevo cliente guardado con éxito.";
