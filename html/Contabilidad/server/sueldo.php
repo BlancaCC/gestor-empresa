@@ -4,7 +4,7 @@
      $query = mysqli_query($dbconn,
 
 
-    "select DNI,nombre,apellidos,Cantidad,CuentaBancaria from (select Codigo, Recibir.DNI, nombre, apellidos from Recibir inner join Empleado on Recibir.DNI=Empleado.DNI) a inner join Sueldo on a.Codigo=Sueldo.Codigo;"
+    "select DNI,nombre,apellidos,Cantidad,cuentaBancaria from (select Codigo, Recibir.DNI, nombre, apellidos,cuentaBancaria from Recibir inner join Empleado on Recibir.DNI=Empleado.DNI) a inner join Sueldo on a.Codigo=Sueldo.Codigo;"
 
     )
 
@@ -28,7 +28,7 @@
 <td> {$row['nombre']}</td>
 <td> {$row['apellidos']}</td>
 <td> {$row['Cantidad']}</td>
-<td> {$row['CuentaBancaria']}</td>
+<td> {$row['cuentaBancaria']}</td>
 </tr>"
     ;
     }

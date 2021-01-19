@@ -1,4 +1,4 @@
-
+use rosellipc;
     
 CREATE TABLE grupoClientes (
        nombreGrupo VARCHAR(20) NOT NULL,
