@@ -15,11 +15,12 @@ function consultarCliente() {
 function eliminarCliente(DNI) {
 
     $.post('/marketing/server/eliminarCliente.php', {DNI:DNI},
-                    function (response) 
-                        {alert(response);
+                    function (response) {
+                        alert(response);
+                        consultarCliente();
                     }
                    );
-    consultarCliente();
+    
 }
 
 

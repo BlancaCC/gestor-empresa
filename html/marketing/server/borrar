@@ -1,4 +1,0 @@
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"nombreGrupo":"Nacionales","DNI":"000866S38"}' \
-  http://localhost:8080/marketing/server/insertarGrupoCliente.php
