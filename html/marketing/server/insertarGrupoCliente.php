@@ -8,9 +8,7 @@
         // variables no nulas 
 		$nombreGrupo = $_POST['nombreGrupo'];	
 		$DNI = $_POST['DNI'];
-	
-		
-    
+
 // -----
     
     $return =""; // variable de mensaje con la información 

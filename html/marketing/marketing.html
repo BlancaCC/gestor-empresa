@@ -25,7 +25,8 @@
 		<button class="accordion"> Gestión grupos y clientes</button>
 		<div class="panel">
 		<h2> Gestión de grupos y de clientes</h2>
-		 <div id="consultarGrupoCliente"> </div>
+		<div id="consultarGrupoCliente"> </div>
+        
 		<h3> Registro nuevo grupo y cliente </h3>
 		       <form id="pushGrupoCliente" method="post">
 			    <p>
@@ -45,9 +46,56 @@
 		  
 		</div>
 
-		      <script src="/marketing/js/GrupoCliente.js"></script>
+<!--
+        <script>
+           function escribirGrupoClientes( data) {
+               $("#consultarGrupoCliente").html(data);
 
-		     
+           }
+
+          function recargarGrupoCliente() {
+              $.get('/marketing/server/consultarGrupoCliente.php',
+                    $(this).serialize(),  escribirGrupoClientes);
+          }
+
+
+          
+          $(document).ready(
+              function(event) {
+              recargarGrupoCliente();
+
+          // función para insertar
+
+              $('#pushGrupoCliente').submit(
+                  function(event) {
+
+                      event.preventDefault();
+                      //alert('funcionando');
+                      var nombreGrupo = document.forms["pushGrupoCliente"]["nombreGrupo"].value;
+                      var DNI  = document.forms["pushGrupoCliente"]["DNI"].value;
+
+          $.post( '/marketing/server/insertarGrupoCliente.php',
+                  {nombreGrupo: nombreGrupo,
+                   DNI:DNI},
+                        function(response) {
+                            alert(response);
+                            recargarGrupoCliente();
+                        }
+                );
+                     
+                  }
+                  
+              );
+          });
+
+          
+          
+    
+        </script>
+-->		     
+        <script src="/marketing/js/GrupoCliente.js"></script>
+
+
 		
 
 
