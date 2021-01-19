@@ -45,54 +45,7 @@
 			   </form>
 		  
 		</div>
-
-<!--
-        <script>
-           function escribirGrupoClientes( data) {
-               $("#consultarGrupoCliente").html(data);
-
-           }
-
-          function recargarGrupoCliente() {
-              $.get('/marketing/server/consultarGrupoCliente.php',
-                    $(this).serialize(),  escribirGrupoClientes);
-          }
-
-
-          
-          $(document).ready(
-              function(event) {
-              recargarGrupoCliente();
-
-          // función para insertar
-
-              $('#pushGrupoCliente').submit(
-                  function(event) {
-
-                      event.preventDefault();
-                      //alert('funcionando');
-                      var nombreGrupo = document.forms["pushGrupoCliente"]["nombreGrupo"].value;
-                      var DNI  = document.forms["pushGrupoCliente"]["DNI"].value;
-
-          $.post( '/marketing/server/insertarGrupoCliente.php',
-                  {nombreGrupo: nombreGrupo,
-                   DNI:DNI},
-                        function(response) {
-                            alert(response);
-                            recargarGrupoCliente();
-                        }
-                );
-                     
-                  }
-                  
-              );
-          });
-
-          
-          
-    
-        </script>
--->		     
+	     
         <script src="/marketing/js/GrupoCliente.js"></script>
 
 
@@ -119,11 +72,11 @@
 				  <label for="Publicidad">Publicidad:</label> 	  <br>
 			          <input type="text" name="Publicidad" id="Publicidad" required>
 				  <br>
-				  <label for="Fecha">Fecha:</label> 	  <br>
+				  <label for="Fecha">Fecha: (formato: YYYY-MM-DD)</label> 	  <br>
 			          <input type="text" name="Fecha" id="Fecha" required>
 				  <br>
 				  <label for="CuentaBancaria">CuentaBancaria:</label> 	  <br>
-			          <input type="text" name="CuentaBancaria" id="CuentaBancaria" required>
+			          <input type="text" name="CuentaBancaria" id="CuentaBancaria">
 				  <br>
 			 
 			    </p>

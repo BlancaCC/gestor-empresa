@@ -14,6 +14,12 @@
 		$CuentaBancaria = $_POST['CuentaBancaria'];
 
 
+    //  --- comprobación fecha en buen formato ---
+
+    if (!preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/", $Fecha) ) {
+        echo "Insercción fallida, formato fecha inválido, debe ser yyyy-mm-dd";
+    return 0;
+    }
 // -----
 
     $return =""; // variable de mensaje con la información

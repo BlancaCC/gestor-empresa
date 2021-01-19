@@ -13,29 +13,29 @@ function consultarCliente() {
 
 
 function eliminarCliente(DNI) {
-var form_data = $("#deleteCliente").serialize();
- $.post('/marketing/server/eliminarCliente.php', form_data,
+
+    $.post('/marketing/server/eliminarCliente.php', {DNI:DNI},
                     function (response) 
                         {alert(response);
                     }
                    );
-consultarCliente();
+    consultarCliente();
 }
 
 
 
 function insertarCliente(Nombre, Correo, DNI, Publicidad, Fecha, CuentaBancaria) {
 
-    // comprobación parámetros obligatorios
-    if(Nombre == "" || Correo == "" ||
-       DNI  == "" || Publicidad == "") {
-        alert( "Hay algún campo que no puede estar vacío");
-        return ;
-    }
-
     // inserción de los datos 
     
-    var form_data = $("#pushCliente").serialize();
+    var form_data = {
+        Correo : Correo,
+        Nombre : Nombre,
+        DNI : DNI,
+        Publicidad: Publicidad,
+        Fecha: Fecha,
+        CuentaBancaria : CuentaBancaria
+    };
     
     $.post( '/marketing/server/insertarCliente.php',
             form_data,
@@ -64,17 +64,6 @@ $(document).ready(
 
             event.preventDefault();
 
-            // determinamos qué acción se ha determinado
-            var acciones = document.getElementsByName('accion');
-            var tipo_accion = "nula";
-            
-            acciones.forEach((rate) => {
-                if (rate.checked) {
-                    tipo_accion = rate.value; 
-                }
-            }
-            )
-
            
                 //________  valor de los campos ______
                 var Nombre = document.forms["pushCliente"]["Nombre"].value;
@@ -82,10 +71,10 @@ $(document).ready(
                 var DNI = document.forms["pushCliente"]["DNI"].value;
                 var Publicidad = document.forms["pushCliente"]["Publicidad"].value;
                 var Fecha = document.forms["pushCliente"]["Fecha"].value;
-        		var cuentaBancaria = document.forms["pushCliente"]["cuentaBancaria"].value;
+        		var CuentaBancaria = document.forms["pushCliente"]["CuentaBancaria"].value;
 
                 // vamos  a procesor la información según convenga
-                var form_data = $(this).serialize();
+ 
                 // INSERTAMOS NUEVO Empleado
  		insertarCliente(Nombre, Correo, DNI, Publicidad, Fecha, CuentaBancaria) ;
               
@@ -102,33 +91,12 @@ $('#deleteCliente').submit(
         function(event) {
 
             event.preventDefault();
-
-            // determinamos qué acción se ha determinado
-            var acciones = document.getElementsByName('accion');
-            var tipo_accion = "nula";
-            
-            acciones.forEach((rate) => {
-                if (rate.checked) {
-                    tipo_accion = rate.value; 
-                }
-}
-                            )
-
-                //________  valor de los campos ______
-                var DNI = document.forms["deleteCliente"]["DNI"].value;
+            var DNI = document.forms["deleteCliente"]["DNI"].value;
                 
-                
-                // vamos  a procesor la información según convenga
-                var form_data = $(this).serialize();
-		
-                // INSERTAMOS NUEVO Empleado
-		 eliminarEmpleado(DNI);
+		    eliminarEmpleado(DNI);
               
 
-            
-           
-
-          
+                
         } //fin function
 
 ); //fin submit delete
