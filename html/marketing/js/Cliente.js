@@ -93,7 +93,7 @@ $('#deleteCliente').submit(
             event.preventDefault();
             var DNI = document.forms["deleteCliente"]["DNI"].value;
                 
-		    eliminarEmpleado(DNI);
+		    eliminarCliente(DNI);
               
 
                 
