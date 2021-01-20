@@ -48,7 +48,7 @@ function  writeOrderModify(Id,fecha, DNI_proveedor,DNI_comprador,descripcion, im
         else
             add_coma = true;
         
-        order += ' Factura.DNI_comprador = ' + "'" +  DNI_proveedor + "'" ;        
+        order += ' Factura.DNI_comprador = ' + "'" +  DNI_comprador + "'" ;        
     }
 
     if( descripcion != "") {
