@@ -10,7 +10,7 @@ $return =""; // variable de mensaje con la información
 $dni_eliminar = $_POST['dni_eliminar'];
 
 	//comprobación de que el empleado existe
-	$query = mysqli_query($dbconn, "SELECT * FROM Empleado where dni=$dni_eliminar;")
+	$query = mysqli_query($dbconn, "SELECT * FROM Empleado where dni='$dni_eliminar';")
 
             or die (mysqli_error($dbconn));
 
